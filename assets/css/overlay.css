@@ -1,0 +1,182 @@
+:root{
+    --color-hover: magenta;
+    --color-border: purple;
+}
+
+[data-id="overlay"], [data-id="miniOverlay"]{
+    all:initial;
+    all:unset;
+    border:1px solid var(--color-border);
+    z-index:999999;
+    background-color:rgba(255,255,255,.8);
+    display: none;
+    font-family: "IBM Plex Mono";
+}
+
+[data-id="overlay"] {
+    color: black;
+    font-size: clamp(12px, 2vw, 16px);
+    line-height: 1.5em;
+    padding:1em .5em;
+}
+
+[data-id="overlay"] .title {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.3em;
+    text-decoration: underline;
+}
+
+[data-id="overlay"] a:hover {
+    font-weight: bold;
+    color: var(--color-hover) !important;
+    cursor:pointer;
+}
+
+[data-id="overlay"] label:hover {
+    font-weight: bold;
+    cursor:pointer;
+}
+
+[data-id="overlay"] label {
+    line-height: 2em;
+}
+
+[data-id="overlay"] ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+[data-id="modal"] {
+    all:initial;
+    all:unset;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border:1px solid var(--color-border);
+    padding:.5em 1.5em;
+    z-index:999999;
+    background-color:rgba(255,255,255,.9);
+    position:fixed;
+    display: none;
+    font-family: "IBM Plex Mono";
+}
+
+[data-id="modal"] p {
+    color: black;
+}
+
+.reduce, .close {
+    padding: .2em;
+    height: .6em;
+    background-color:rgba(255,255,255,.9);
+    position: absolute;
+    clear: all;
+    border: 1px solid var(--color-border);
+    border-top : none;
+}
+
+.reduce {
+    line-height: 0;
+    top: 0;
+    left: 0;
+    border-left : none;
+}
+
+.close {
+    line-height: 0.45em;
+    right: 0;
+    top: 0;
+    border-right: none;
+}
+
+.reduce:hover, .close:hover, button:hover {
+    cursor:pointer;
+}
+
+.expand, .reduce, .close {
+    font-size: 20px;
+    color: var(--color-border);
+    font-weight: bold;
+}
+
+.expand {
+    padding: .1em .3em;
+}
+
+button {
+    margin: .1em 0;
+}
+
+.mdAnchor {
+    margin-left: 0.5em;
+}
+
+/* Horizontal format */
+
+@media only screen and (orientation: landscape),  pagedjs-ignore {
+    [data-id="overlay"], [data-id="miniOverlay"]{
+        width:max-content;
+        top:1em;
+        left:1em;
+        text-align:center;
+        overflow: auto;
+        display: block;
+        position: fixed;
+        max-width: 12em;
+        max-height: 90vh;
+    }
+    [data-id="modal"] {
+        display: none;
+    }
+}
+
+
+/* Vertical format */
+
+@media only screen and (orientation: portrait),  pagedjs-ignore {
+    [data-id="overlay"], [data-id="miniOverlay"]{
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        box-sizing:border-box;
+        margin: 3vw;
+   }
+
+    [data-id="miniOverlay"]{
+        display: block;
+    }
+
+    [data-id="overlay"], [data-id="overlay"] li, [data-id="overlay"] ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: space-around;
+        flex-direction: row;
+    }
+
+    [data-id="overlay"] {
+        width: 94vw !important;
+    }
+
+    [data-id="overlay"] li, [data-id="overlay"] ul {
+        margin: 0;
+    }
+
+    [data-id="overlay"] > a, button {
+        padding: .3em .3em;
+    }
+
+    [data-id="modal"] {
+        display: none;
+        width: 80%;
+    }
+
+    .reduce, .close, button, [data-id="modal"], [data-id="overlay"], [data-id="miniOverlay"]{
+        border-width: 2px;
+    }
+
+    .mdAnchor {
+        display: none;
+    }
+}

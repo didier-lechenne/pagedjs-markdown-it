@@ -1,0 +1,182 @@
+
+/* layout images mode */
+[data-mode="layout"] .figure::after {
+  /* content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0, .15);
+  pointer-events: none; */
+}
+[data-mode="layout"] .insert:not(.layouting),
+[data-mode="layout"] .figure:not(.layouting) { 
+  cursor: help;
+}
+
+
+/* [data-mode="layout"] .figure:not(.layouting):hover::after { 
+  content: "Activate layout mode";
+  position: absolute;
+  top:1em; left: 1em; 
+  border-radius: 3px;
+  background: black;
+  appearance: none;
+  color: white;
+  padding: .1em .5em;
+  font-size: 12px;
+} */
+
+[data-mode="layout"] .insert:not(.layouting):hover .close,
+[data-mode="layout"] .figure:not(.layouting):hover .close { 
+  display: none;
+}
+
+.figure {
+  position: relative;
+  justify-self: stretch;
+}
+
+.insert{
+  position: relative;
+  /* justify-self: stretch; */
+}
+
+.figure img {
+  /* width: 100%;
+  max-width: none; */
+  
+}
+
+.figure nav { 
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  z-index: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  display: none;
+}
+
+.figure.codeimagegrid nav { 
+  bottom: 0;
+  top: unset;
+}
+
+.insert nav { 
+  position: absolute;
+  width: 170px;
+  bottom: 0;
+  left: 0;
+  padding: 3mm;
+  z-index: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  display: none;
+}
+
+
+
+.insert.layouting nav,
+.figure.layouting nav {
+  display: flex;
+}
+
+.figure nav,
+.figure nav select,
+.figure nav option { font-size: 12px; font-family: Ecole, sans-serif; }
+.figure nav.copied::after {
+  content: "Code copié !";
+  font-weight: bold;
+  color: white;
+  background: green;
+  padding: 0 .5em;
+  animation: copied 100ms infinite alternate;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  font-size: 12px;
+}
+
+.insert nav,
+.insert nav select,
+.insert nav option { font-size: 12px; font-family: Ecole, sans-serif; }
+.insert nav.copied::after {
+  content: "Code copié !";
+  font-weight: bold;
+  color: white;
+  background: green;
+  padding: 0 .5em;
+  animation: copied 100ms infinite alternate;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  font-size: 12px;
+}
+
+@keyframes copied {
+  0% { transform: rotate(2deg);}
+  100% { transform: rotate(-2deg);}
+}
+.figure p {
+  margin: 0;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.figure p { background: #00000099; padding: .1em .25em; border-radius: 3px;}
+.figure nav p:last-of-type {
+  margin-bottom: 1em;
+}
+
+
+figure select, .figure label, .figure button {
+  border: none;
+  border-radius: 3px;
+  background: black;
+  appearance: none;
+  color: white;
+  padding: .1em .5em;
+}
+
+.insert nav p {
+  margin: 0;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.insert nav p { background: #00000099; padding: .1em .25em; border-radius: 3px;}
+.insert nav p:last-of-type {
+  margin-bottom: 1em;
+}
+
+.insert select, .insert label, .insert button {
+  border: none;
+  border-radius: 3px;
+  background: black;
+  appearance: none;
+  color: white;
+  padding: .1em .5em;
+}
+
+.close {
+  margin-bottom:  1em;
+}
+
+@media screen {
+  .printhelper { display: none;}
+  .pagedjs_page_content .printhelper { display: flex;}
+  /* main .printoptions { display: none;} */
+}
+
+.pagedjs_area .screenoptions { display: none;}
+
+.figure .rowoptions{ display: none;}
+
+.figure.codeimagegrid .rowoptions{ display:block;}

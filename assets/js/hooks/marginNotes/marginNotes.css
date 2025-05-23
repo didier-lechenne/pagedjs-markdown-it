@@ -1,0 +1,59 @@
+/* MARGIN NOTES STYLE */
+/* MARGIN NOTES STYLE */
+
+.footnote {
+    word-break: break-word;
+    padding-right: 4mm;
+    padding-left: 18mm;
+    line-height: 1.35;
+    font-size: 7pt;
+    text-align: left;
+    font-family: var(--text-font);
+    font-weight: normal;
+    top: auto;
+    text-indent: 0cm;
+    hyphens: none;
+
+}
+
+.note-call {
+    font-size: 7pt;
+    font-weight: normal;
+    line-height: 0;
+    vertical-align: super;
+    color:red;
+}
+
+.note-marker {
+    margin-right: 0.08cm;
+    font-weight: 500;
+    color:blue;
+}
+
+
+
+/* .footnote {
+    font-family: var(--font-note);
+    font-weight: 400;
+    font-size: 6pt;
+    text-align: left;
+    padding-top: 3px;
+    margin-bottom: 14px;
+    padding-left: var(--g-column-gutter);
+    padding-right: 20px;
+    text-indent: 0;
+    word-wrap: break-word;
+    font-style: normal;
+    color: var(--color);
+}
+
+.note-call_footnote {
+    font-family: 'PostGrotesk';
+    color: var(--accentcolor);
+    vertical-align: super;
+    font-size: 65%;
+}
+
+.note-marker_footnote {
+    color: var(--accentcolor);
+} */

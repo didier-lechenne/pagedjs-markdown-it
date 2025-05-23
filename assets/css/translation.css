@@ -1,0 +1,26 @@
+:root{
+    --color-background-target: #F4F1BB;
+    --color-background-accepted: #9BC1BC;
+    --color-background-alt: #ED6A5A80;
+}
+
+.target {
+    background-color: var(--color-background-target) !important;
+}
+
+.target:hover {
+    cursor: help;
+}
+
+.target.accepted {
+    background-color: var(--color-background-accepted) !important;
+}
+
+.random {
+    background-color: var(--color-background-alt) !important;
+}
+
+.random:hover {
+    cursor:pointer;
+    font-weight: bold;
+}

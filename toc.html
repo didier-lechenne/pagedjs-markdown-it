@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document avec Paged.js</title>
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 1in;
+        }
+
+        /* Style pour h2 appliqué à toutes les pages */
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .sommaire {
+            page: sommaire;
+        }
+
+        @page sommaire {
+            background-color: rgb(8, 75, 8);
+            break-before: always;
+        }
+
+
+       main  .template {
+            page: template;
+        }
+
+        @page template {
+            background-color: rgb(128, 211, 128);
+            break-before: always;
+        }
+
+
+       h2.page {
+            page: page;
+        }
+
+        @page page {
+            margin-top: 20px;
+            background-color: azure;
+            break-before: always;
+        }
+
+        main .page2 {
+            page: page2;
+        }
+
+        @page page2 {
+            margin-top: 20px;
+            background-color: rgb(24, 173, 173);
+            break-before: always;
+        }
+    </style>
+    <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+</head>
+
+<body>
+ 
+    <nav id="nav" class="sommaire">
+    </nav>
+
+
+    <main>
+        <section class="template default">
+            <h2>Introduction</h2>
+            <p>Introduction au document.</p>
+
+            <h2 class="page">Chapitre 1</h2>
+
+            <div class="page2">
+                <h3>Titre de l'article</h3>
+                <h3>Didier Lechenne</h3>
+            </div>
+
+            <p>Contenu du premier chapitre.</p>
+
+            <h2 class="page">Chapitre 2</h2>
+
+
+            <span class="page2">
+                <h3>Titre de l'article</h3>
+                <h3>Garance Lechenne</h3>
+            </span>
+
+            <p>Contenu du deuxième chapitre.</p>
+
+        </section>
+    </main>
+
+
+    
+    <script>
+        // Generates a table of content
+        // Author: Julie Blanc
+        // https://gitlab.coko.foundation/pagedjs/pagedjs-plugins/table-of-content/
+
+        // making it a hook to run inside paged.js and not before
+
+        function createToc(config) {
+            const content = config.content
+            const tocElement = config.tocElement
+            const titleElements = config.titleElements
+
+            let tocElementDiv = content.querySelector(tocElement)
+            console.log(tocElementDiv);
+            // if (!tocElementDiv) return console.warn('couldn’t start the toc')
+            tocElementDiv.innerHTML = ''
+            let tocUl = document.createElement('ul')
+            tocUl.id = 'list-toc-generated'
+            tocElementDiv.appendChild(tocUl)
+
+            // add class to all title elements
+            let tocElementNbr = 0
+            for (var i = 0; i < titleElements.length; i++) {
+                let titleHierarchy = i + 1
+                let titleElement = content.querySelectorAll(titleElements[i])
+
+                titleElement.forEach(function (element) {
+                    // check if shouldbe shown
+                    if (
+                        !(
+                            element.closest('section').classList.contains('toc-ignore') ||
+                            element.closest('section').classList.contains('toc')
+                        )
+                    ) {
+                        // add classes to the element
+                        element.classList.add('title-element')
+                        element.setAttribute('data-title-level', titleHierarchy)
+
+                        // add an id if doesn't exist
+                        tocElementNbr++
+
+                        if (element.id == '') {
+                            element.id = 'title-element-' + tocElementNbr
+                        }
+                        let newIdElement = element.id
+                    }
+                })
+            }
+
+            // create toc list
+            let tocElements = content.querySelectorAll('.title-element')
+
+            for (var i = 0; i < tocElements.length; i++) {
+                let tocElement = tocElements[i]
+
+                let tocNewLi = document.createElement('li')
+
+                // Add class for the hierarcy of toc
+                tocNewLi.classList.add('toc-element')
+                tocNewLi.classList.add('toc-element-level-' + tocElement.dataset.titleLevel)
+
+                let classes = [
+                    ...tocElement.className.split(' '),
+                    ...tocElement.closest('section')?.className.split(' '),
+                ]
+
+                classes.forEach((meta) => {
+                    if (meta == 'title-element' || meta == undefined || meta == '') return
+                    tocNewLi.classList.add(`toc-${meta}`)
+                })
+
+                //get the exisiting class
+                // Keep class of title elements
+                let classTocElement = tocElement.classList
+                for (var n = 0; n < classTocElement.length; n++) {
+                    if (classTocElement[n] != 'title-element') {
+                        tocNewLi.classList.add(classTocElement[n])
+                    }
+                }
+
+                // Create the element
+                tocNewLi.innerHTML =
+                    '<a href="#' + tocElement.id + '">' + tocElement.innerHTML + '</a>'
+                tocUl.appendChild(tocNewLi)
+            }
+        }
+
+
+        class handlers extends Paged.Handler {
+            constructor(chunker, polisher, caller) {
+                super(chunker, polisher, caller);
+            }
+
+            beforeParsed(content) {
+                // Supprimer le nav original
+                const original_nav = content.querySelector('#nav');
+                original_nav.innerHTML = "";
+
+                // Construire une nouvelle TOC avec la fonction createToc
+                createToc({
+                    content: content,
+                    tocElement: '#nav',
+                    titleElements: ['main h2', 'main .default h3']
+                });
+            }
+        }
+
+        Paged.registerHandlers(handlers);
+
+    </script>
+    
+
+
+
+    </body>
+
+</html>

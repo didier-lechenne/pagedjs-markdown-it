@@ -1,0 +1,84 @@
+/* Importe les css pour afficher les repères de grille */
+@import "grid-img-overlay.css";
+
+@media screen,
+pagedjs-ignore {
+    /* see affiche_repere.js */
+
+    /* show the margin-box */
+    .pagedjs_margin-top,
+    .pagedjs_margin-top-left,
+    .pagedjs_margin-top-left-corner-holder,
+    .pagedjs_margin-top-center,
+    .pagedjs_margin-top-right,
+    .pagedjs_margin-top-right-corner-holder,
+    .pagedjs_margin-bottom,
+    .pagedjs_margin-bottom-left,
+    .pagedjs_margin-bottom-left-corner-holder,
+    .pagedjs_margin-bottom-center,
+    .pagedjs_margin-bottom-right,
+    .pagedjs_margin-bottom-right-corner-holder,
+    .pagedjs_margin-right,
+    .pagedjs_margin-right-top,
+    .pagedjs_margin-right-middle,
+    .pagedjs_margin-right-bottom,
+    .pagedjs_margin-left,
+    .pagedjs_margin-left-top,
+    .pagedjs_margin-left-middle,
+    .pagedjs_margin-left-bottom {
+        box-shadow: 0 0 0 1px inset var(--color-marginBox);
+    }
+
+
+    /*--------------------------------------------------------------------------------------*/
+
+    /* PREVIEW MODE & marginbox & hideMarker */
+
+    .interface-preview {
+        background-color: black;
+        --color-pageBox: transparent;
+    }
+
+    .interface-preview .pagedjs_right_page .pagedjs_bleed,
+    .interface-preview .pagedjs_left_page .pagedjs_bleed-top,
+    .interface-preview .pagedjs_left_page .pagedjs_bleed-bottom,
+    .interface-preview .pagedjs_left_page .pagedjs_bleed-left,
+    .interface-preview .pagedjs_right_page .pagedjs_bleed-right {
+        background-color: black;
+        z-index: 999999;
+    }
+
+    .interface-preview .pagedjs_marks-crop,
+    .interface-preview .pagedjs_marks-crop {
+        opacity: 0;
+    }
+
+
+    body.marginbox {
+        --color-marginBox: blue;
+    }
+
+    body,
+    body.hideMarker.marginbox,
+    body.interface-preview,
+    body.interface-preview.marginbox,
+    body.interface-preview .pagedjs_page {
+        --color-marginBox: transparent;
+        box-shadow: none;
+    }
+
+    .hideMarker .content,
+    .hideMarker .pagedjs_area {
+        --color-pageBox: transparent;
+    }
+
+
+    /* FOND_PERDU -------------------------------------------*/
+
+    .pagedjs_pagebox {
+        /* box-shadow: 0 0 0 1px  hsla(var(--color-pageBox) , 0.5); */
+        box-shadow: 0 0 0 1px rgba(0, 0, 255, 0.5);
+    }
+
+
+}

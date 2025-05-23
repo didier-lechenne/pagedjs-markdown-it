@@ -1,0 +1,14 @@
+.imagenote {
+    width: 33%;
+    display: block;
+    margin: var(--spacer) 0 0 var(--spacer);
+    font-size: var(--smallsize);    
+  }
+  .imagenote.printleft {
+    float: left;
+    margin: var(--spacer) var(--spacer) 0 0;
+  }
+  .imagenote.printright {
+    float: right;
+    margin: var(--spacer) 0 0 var(--spacer);
+  }

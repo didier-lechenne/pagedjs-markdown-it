@@ -1,0 +1,34 @@
+@page {
+    --pagedjs-fold: 0mm;
+  }
+  
+  .full-page-img{
+    --pagedjs-full-page: page;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* [data-id="img-3"]{
+    object-position: -234px 0px;
+  } */
+  
+  .full-spread-img{
+    --pagedjs-full-page: spread;
+  }
+  
+  .full-spread-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  .group-figure {
+    --pagedjs-full-page: left;
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%;
+    padding: 10mm;
+    padding-left: calc(var(--pagedjs-bleed-left-left) + 10mm);
+  }

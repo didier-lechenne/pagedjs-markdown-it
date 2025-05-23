@@ -1,0 +1,69 @@
+# Dimensions de la page en mm, pas besoin de mettre mm (obligatoire)
+# Page dimensions in mm, no need to add mm (required)
+width: 210
+height: 297
+
+# Marges générales de la page en mm (obligatoire)
+# General page margins in mm (required)
+margin_top: 32
+margin_right: 10
+margin_bottom: 12
+margin_left: 75
+
+# Marges spécifiques pour les pages de gauche et de droite en mm (optionnel)
+# Specific margins for left and right pages in mm (optional)
+page_left_margin_top:
+page_left_margin_bottom:
+page_left_margin_left:
+page_left_margin_right:
+
+page_right_margin_top:
+page_right_margin_bottom:
+page_right_margin_left:
+page_right_margin_right:
+
+# Propriétés de mise en page
+# Page layout properties
+# "true" ou "false" uniquement
+# "true" or "false" only
+
+# Fond perdu et repère de coupe
+# Bleed and crop marks
+bleed: true
+# bleed: true
+marks: true
+# marks: true
+
+
+
+
+# recto_verso: true
+recto_verso: false
+
+
+
+# Propriétés pour les notes
+# Properties for notes
+# au choix: bas ou marge
+# choose: bottom or margin
+
+# Des image dans la marge et/ou des notes en marge ou en bas de page
+imageNotes: true
+
+# au choix
+printNotes: margin
+# printNotes: bottom
+
+
+# Pas d'élements dans la marge, donc obligatoirement des notes en basde page
+# imageNotes: false
+# printNotes: bottom
+
+
+# Propriétés avancées : laissez comme cela si vous ne savez pas ce que vous faites !
+# Advanced properties: leave as is if you don’t know what you’re doing!
+typesetting: true
+ep_markdown: false
+tailwind: true
+auto: false
+baseline: false

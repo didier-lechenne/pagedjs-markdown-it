@@ -1,0 +1,990 @@
+@media print {
+
+  @page {
+
+    @top-left-corner{
+      content: element(folioRunning);
+      text-align: left;
+      padding-left: 1.2cm;
+    }
+    @top-right{
+      content: element(titleRunning);
+      text-align: left;
+    }
+
+    @footnote {
+      float: bottom;
+    }
+  } 
+
+
+  @page appendices {
+    /* margin: 2.2cm 1cm .8cm 7.5cm; */
+  }
+
+  @page figures {
+    margin: 2.2cm 1cm .8cm 7.5cm;
+  }
+
+  @page references {
+    /* margin: 3.2cm 1cm 1.2cm 7.5cm; */
+  }
+
+  @page gridcol {
+      margin: 3.2cm 1cm 1.2cm 7.5cm;
+      --g-column-count: var(--grid-col, 3);
+      --g-column-gutter: var(--grid-col-gutter, var(--spacer));
+      
+      columns: var(--g-column-count);
+      column-gap: var(--spacer);
+      
+    }
+
+  @page interview {
+    /* margin: 3.2cm 1cm 1.2cm 7.5cm; */
+  }
+
+  /* @page page {
+    @bottom-left-corner {
+      display: none;
+    }
+    @bottom-left {
+      display: none;
+    }
+  } */
+
+
+  @page fullimg{
+    margin: 0cm;
+
+    @bottom-left-corner {
+      display: none;
+    }
+    @bottom-left {
+      display: none;
+    }
+  }
+
+  @page sommaire {
+    margin: 32mm 10mm 12mm 75mm;
+
+    @top-left-corner{
+      display: none;
+    }
+    @top-right{
+      display: none;
+    }
+
+  }
+
+  @page modulargrid{
+    /* background-color: rgb(98, 218, 18); */
+    /* color:#fff; */
+    margin:32mm 10mm 12mm 75mm;
+    
+    @top-left-corner{
+      /* display: none; */
+    }
+    @top-right{
+      /* display: none; */
+    }
+  
+      @bottom-right{
+        /* display: none; */
+      }
+      @bottom-left{
+        /* display: none; */
+      }
+  }
+
+  @page cover {
+    margin: 2cm;
+    background-color:rgba(22, 21, 20,1);
+  
+    @top-left-corner{
+      display: none;
+    }
+    @top-right{
+      display: none;
+    }
+  
+    @bottom-right{
+      display: none;
+    }
+    @bottom-left{
+      display: none;
+    }
+  
+  }
+
+
+  @page blankpage {
+    margin: 0cm;
+  
+    @top-left-corner{
+      display: none;
+    }
+    @top-right{
+      display: none;
+    }
+  
+  
+   @bottom-left {
+     display: none;
+   }
+   @bottom-right{
+     display: none;
+   }
+  
+   @bottom-left-corner {
+     display: none;
+   }
+   @bottom-left {
+     display: none;
+   }
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* ------------------------------------------------------------------------ Variables */
+    :root {
+      --bigsize: 60px;
+      --basesize: 12px;
+      --smallsize: 10px;
+      --color: rgba(0, 0, 0, 0.85);
+      --spacer: .5cm;
+      /* maximum width for texts */
+      --maxwidth: 40em;
+      /* columns */
+      --columnwidth: calc((186mm - var(--spacer) * 11) / 12);
+      --maxwidth:100%;
+
+      --baseline-text: 12px;
+      --pt-6: 0.5em;   /* 6pt -> 8px / 12px */
+      --pt-7: 0.583em; /* 7pt -> 9.333px / 12px */
+      --pt-8: 0.666em; /* 8pt -> 10.667px / 12px */
+      --pt-9: 0.75em;  /* 9pt -> 12px / 12px */
+      --pt-10: 0.833em;/* 10pt -> 13.333px / 12px */
+      --pt-11: 0.916em;/* 11pt -> 14.667px / 12px */
+      --pt-12: 1em;    /* 12pt -> 16px / 12px */
+      --pt-13: 1.083em;/* 13pt -> 17.333px / 12px */
+      --pt-14: 1.166em;/* 14pt -> 18.667px / 12px */
+      --pt-15: 1.25em; /* 15pt -> 20px / 12px */
+      --pt-16: 1.333em;/* 16pt -> 21.333px / 12px */
+      --pt-17: 1.416em;/* 17pt -> 22.667px / 12px */
+      --pt-18: 1.5em;  /* 18pt -> 24px / 12px */
+      --pt-19: 1.583em;/* 19pt -> 25.333px / 12px */
+      --pt-20: 1.666em;/* 20pt -> 26.667px / 12px */
+
+    }
+  
+    /* ------------------------------------------------------------------------ gabarit */
+    .fullimg {
+      page: fullimg;
+      page-break-after: always;
+      /* page-break-before: always; */
+      /* break-before: never; */
+      /* break-after: always; */
+    }
+
+
+    /* .page{
+      page: page;
+      page-break-after: always;
+      page-break-before: always;
+      height: calc(var(--pagedjs-height) - var(--pagedjs-margin-top) - var(--pagedjs-margin-bottom) - var(--pagedjs-bleed-top) - var(--pagedjs-bleed-bottom));
+
+    } */
+  
+
+
+    /* ------------------------------------------------------------------------ Cover */
+ 
+   
+    /* permet d'avoir une image pleine page */
+    /* #cover .pagedjs_full-page_content {
+      left: calc((var(--pagedjs-margin-left) + 6mm) * -1) !important;
+      width: calc(var(--pagedjs-pagebox-width) + 6mm + 6mm) !important;
+  } */
+  #cover {
+    page: cover;
+
+    page-break-after: always;
+    color: rgb(255, 255, 255);
+    
+    /* “reset” pagebox left margin : */
+    margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)) );
+
+
+    --g-column-count: var(--grid-col, 12);
+    --g-column-gutter: var(--grid-col-gutter, var(--spacer));
+    --g-row-count: var(--grid-row, 10);
+    --g-row-gutter: var(--grid-row-gutter, var(--spacer));
+      
+    display: grid;
+    grid-template-columns: repeat(var(--g-column-count), 1fr);
+    grid-template-rows: repeat(var(--g-row-count), 1fr);
+    column-gap: var(--g-column-gutter);
+    row-gap: var(--g-row-gutter);
+  
+    height: calc(var(--pagedjs-height) - var(--pagedjs-margin-top) - var(--pagedjs-margin-bottom) - var(--pagedjs-bleed-top) - var(--pagedjs-bleed-bottom));
+
+    /* width: calc(100%); */
+    padding: 0;
+    margin: 0;
+  }
+
+  #cover .insert {
+      grid-column: var(--printcol, auto) / span var(--printwidth, 3);
+      grid-row: var(--printrow, auto) / span var(--printheight, 3);
+
+      /* overflow: hidden; */
+      position: relative;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      max-width: unset;
+
+    }
+    #cover .insert h1 ,
+    #cover .insert h2 ,
+    #cover .insert h3 ,
+    #cover .insert h4 ,
+    #cover .insert div,
+    #cover .insert p {
+      align-self: var(--alignself, start);
+      flex-grow: 1;
+    }
+
+    #cover .insert p {
+      margin-top: 1em;
+      margin-bottom: 0;
+    }
+    #cover .insert p:first-child {
+      margin-top: 0;
+    }
+
+    #cover figure {
+      grid-column: var(--printcol, auto) / span var(--printwidth, 3);
+      grid-row: var(--printrow, auto) / span var(--printheight, 1);
+      /* align-self: var(--alignself, start); */
+      overflow: hidden;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      max-width: unset;
+      /* background-color: hsla(16, 100%, 50%, 0.15); */
+  } 
+
+  .hideMarker #cover figure {
+    background-color: unset;
+  } 
+  #cover figure img{
+      height: auto;
+      position: absolute;
+      border-style: none;
+      break-inside: avoid;
+      max-width: unset;
+
+      left: calc(var(--imgX,0) * 1%);
+      top: calc(var(--imgY,0) * 1%);
+      width: calc(var(--imgW, 100) * 1%);
+
+      align-self: var(--alignself, start);
+
+    }
+
+    #cover  > h2 {
+      /* display:none; */
+  }
+
+
+
+
+  [data-title="cover"] h1 {
+      margin: 0;
+      line-height: 1.1;
+      /* max-width: calc(var(--bigsize) * 16); */
+      font-size: calc(var(--bigsize) * 1);
+      /* color: var(--accentcolor); */
+    }
+  
+    [data-title="cover"] h2 {
+      margin: 0;
+      line-height: 1.2;
+      /* max-width: calc(var(--bigsize)* 16); */
+      font-size: calc(var(--bigsize)* .75);
+      /* color: var(--accentcolor); */
+      /* margin: .5em 0; */
+    }
+
+  .meta {
+    display: grid;
+    grid-gap: var(--spacer);
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 2rem;
+  }
+
+ 
+
+    /* ------------------------------------------------------------------------ Sommaire */
+
+    #sommaire{
+      page: sommaire;
+      page-break-after: always;
+    }
+
+    #nav {
+      display: flex;
+      align-items: center;
+      height: calc(var(--pagedjs-pagebox-height) - var(--pagedjs-margin-bottom) - var(--pagedjs-margin-top));
+      min-height: 0;
+      padding: 0;
+      
+      
+      /* height: calc(var(--pagedjs-pagebox-height) - var(--pagedjs-margin-bottom) - var(--pagedjs-margin-top));
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      grid-template-columns: 1fr;
+       */
+
+      /* counter-reset: page 1;   */
+    }
+    #nav h2, #nav ul { grid-column: 1; }
+  
+
+
+
+     /* ------------------------------------------------------------------------ blankpage */
+
+  [id^="blankpage"] {
+    page: blankpage;
+    /* page-break-before: always; */
+    page-break-after: always;
+    /* width:100%; */
+      height: calc(var(--pagedjs-height) - var(--pagedjs-margin-top) - var(--pagedjs-margin-bottom) - var(--pagedjs-bleed-top) - var(--pagedjs-bleed-bottom));
+      min-height: 0;
+    }
+  
+ 
+    .pagedjs_page:has([data-bgColor="black"]) {
+      background-color:rgba(22, 21, 20, 1);
+    }
+
+    .pagedjs_page:has([data-bgColor="colorBordeaux"]) {
+      background-color: rgb(59, 2, 2);
+    } 
+
+
+
+
+    /* ------------------------------------------------------------------------ Running titles */
+
+    #page-1{
+      /* display:none */
+    }
+    /* running title */
+    .runningtitle {
+      display: none;
+      position: running(titleRunning);
+      gap:var(--spacer);
+    }
+    .runningtitle > * {
+      flex: 1;
+      text-align: left;
+    }
+    .runningtitle :nth-child(2){
+      font-weight: bold;
+    }
+    /* running folio */
+    .runningfolio {
+      display: none;
+      position: running(folioRunning);
+      gap:var(--spacer);
+    }
+    .runningfolio img {
+      width: 1cm;
+      transform: translateY(-.3cm);
+      margin: 0 1em;
+    }
+    .folio::before{
+      content: counter(page) ;
+      font-weight: bold;
+    }
+    .runningtitle, 
+    .runningfolio {
+      padding: 1cm 0 .5cm;
+    }
+    .pagedjs_margin {
+      align-items: start !important;
+    }
+    .pagedjs_margin-content > * {
+      display: flex !important;
+      align-items: start;
+    }
+  
+    
+    /* ------------------------------------------------------------------------ Content */
+    /* contenu */
+    main { 
+      display: block;
+      padding: 0;
+    }
+    .default p {
+      /* minimum deux lignes présentes sur la page, au début ou à la fin d’un paragraphe */
+      orphans: 2;
+      widows: 2;
+      margin: 0;
+    }
+    /* indentation des paragraphes sauf :
+      — quand le paragaphe succède à autre chose qu’un paragraphe
+      — quand un paragraphe est coupé par un saut ( il contient alors l’attribuet `data-split-from`
+    */
+    .default p + p:not([data-split-from]) { text-indent: 2em; }
+  
+    #nav, section { 
+      margin-bottom: 0; 
+    }
+    figure {
+      break-inside: avoid;
+    }
+    .default figure.full {
+      /* “reset” pagebox left margin : */
+      margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)) );
+      max-width: none;
+    }  
+
+    .figcaption,
+    figcaption {
+      font-size: var(--smallsize);
+    }
+    figure.videofigure::after{
+      display: block;
+      content: "→ " attr(data-src);
+      font-size: var(--smallsize);
+    }
+    .video[style] iframe {visibility: hidden;}
+    .video button { display: none;}
+    /* ------------------------------------------------------------------------ Break */
+    .breakpage {
+      height: 0;
+      page-break-before: always;
+      position: absolute;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+    .breakcolumn{
+      break-before:column;
+      break-after:column;
+    }
+    .breakprint {
+      display: block;
+    }
+    .breakscreen {
+      /* display: none; */
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+    /* ------------------------------------------------------------------------ Spacing */
+    [style^="--ls"] { letter-spacing: calc(var(--ls, 0) * -0.001em); }
+  
+    
+
+
+    /* ------------------------------------------------------------------------ Footnotes ??? */
+    .footnote {
+      float: footnote;
+      counter-increment: footnote;
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+    }
+    
+    .footnote:has(.breakcolumn) {
+      break-inside: auto;
+      -webkit-column-break-inside: auto;
+    }
+    
+    .footnotes-sep,
+    section.footnotes { display: none;}
+  
+    ::footnote-call {
+      font-weight: bold; 
+      content: "[" counter(footnote) "] ";
+      font-variant-position:normal;
+      vertical-align: baseline;
+      font-size: 100%;
+      padding-left: 0.25em;
+    }
+  
+    ::footnote-marker {
+      content: "[" counter(footnote-marker) "] ";
+      font-weight: bold;
+    }
+    
+    .pagedjs_footnote_inner_content {
+      font-size: var(--smallsize);
+      margin-top: 1em;
+    }
+  
+  
+    /* ------------------------------------------------------------------------ Figures */
+    .figures_page {
+      /* if we want a special template for iconographic groups */
+      /* page: figures; */
+      /* page-break-after: always; */
+      /* “reset” pagebox left margin : */
+      margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)) );
+    }
+    .figure_call {
+      font-variant-position:normal;
+      vertical-align: baseline;
+      font-size: 100%;
+    }
+    .figure_call a::after { 
+      content: ", p. " target-counter(attr(href url), page);
+    }
+  
+    .figure_call_back {
+      display: none;
+    }
+  
+  
+    /* ------------------------------------------------------------------------ Autofolder */
+    .autofolder {
+      page: appendices;
+      page-break-after: always;
+      /* “reset” pagebox left margin : */
+      margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)) );
+    }
+  
+    /* ------------------------------------------------------------------------ Annexes */
+    .appendices {
+      page: appendices;
+      page-break-before: always;
+      /* “reset” pagebox left margin : */
+      margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)) );
+    }
+    .appendices > h2 {
+      position: absolute !important;
+      border: 0 !important;
+      height: 1px !important;
+      width: 1px !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+    }
+  
+    .videofigure,
+    .figure {
+      grid-column: var(--printcol, auto) / span var(--printwidth, 3);
+      grid-row: var(--printrow, auto) / span var(--printheight, 1);
+      align-self: var(--alignself, start);
+    }
+
+    /* .videofigure, *,
+    .figure * {
+      align-self: var(--alignself, start);
+  } */
+    
+    .figure {
+      position: relative;
+      justify-self: stretch;
+    }
+
+    .appendices .videofigure .video {
+      margin-top: 0;
+    }
+  
+    .figure.print-top { align-self: start;}
+    .figure.print-center { align-self: center;}
+    .figure.print-bottom { align-self: end;} 
+    
+    /* ------------------------------------------------------------------------ References */
+    .references {
+      page: references;
+      page-break-before: always;
+      /* “reset” pagebox left margin : */
+      margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)) );
+    }
+    .references  h2 {
+      /* visibility: hidden; */
+      position: absolute !important;
+      border: 0 !important;
+      height: 1px !important;
+      width: 1px !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+    }
+    /* ------------------------------------------------------------------------ Interview */
+
+    .interview {
+      page: interview;
+      page-break-before: always;
+    }
+    .interview  h2 {
+      /* visibility: hidden; */
+      position: absolute !important;
+      border: 0 !important;
+      height: 1px !important;
+      width: 1px !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+    }
+    .interview p:first-of-type{
+     margin-top: 0;
+    }
+
+    .interview p {
+      --indent: 10em;
+      margin-left: -10em;
+      max-width: none;
+    }
+  
+    /* ------------------------------------------------------------------------ Glossaire */
+    .glossary {
+      font-size: unset;
+    }
+
+    .glossary  h2 {
+      /* visibility: hidden; */
+      position: absolute !important;
+      border: 0 !important;
+      height: 1px !important;
+      width: 1px !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+    }
+
+    .glossary  h3 {
+      padding-top: 0;
+      margin-top: 0;
+    }
+     /* ------------------------------------------------------------------------ References */
+
+    .columns {
+      --g-column-count: var(--grid-col,3);
+      --g-column-gutter: var(--grid-col-gutter, var(--spacer));
+     
+      font-size: unset;
+      columns: var(--g-column-count);
+      column-gap: var(--g-column-gutter);
+    }
+
+    .columns  h2 {
+      /* visibility: hidden; */
+      position: absolute !important;
+      border: 0 !important;
+      height: 1px !important;
+      width: 1px !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+    }
+
+    .references  h3,
+    .columns  h3 {
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    .columns p {
+      break-inside: avoid;
+      max-width: 28em;
+    }
+
+
+    .thanks h2 {
+      /* visibility: hidden; */
+      position: absolute !important;
+      border: 0 !important;
+      height: 1px !important;
+      width: 1px !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+    }
+
+  
+    /* ------------------------------------------------------------------------ Table des matières */
+    
+    #list-toc-generated {
+      list-style: none;
+      padding: 0;
+    }
+  
+    #list-toc-generated li:first-child {
+      margin-top: 0em;
+    }
+
+    #list-toc-generated .toc-element a::before {
+      content: target-counter(attr(href), page);
+      position: absolute;
+      left: 0;
+      margin-left: calc(-4em - 20px);
+      text-align: right;
+      width: 4em;
+    }
+  
+    #list-toc-generated .toc-element-level-1 {
+      font-weight: bold;
+      margin-top: 1em;
+    }
+  
+    #list-toc-generated .toc-element-level-2 {
+      margin-left: 20px;
+    }
+    #list-toc-generated .toc-element-level-2 a::before {
+      /* margin-left: calc(-4em - 40px); */
+    }
+
+
+
+   /*----------------------------------- ajout---*/
+
+   br[data-break-before] + * {
+    margin-top: 0 ;
+  }
+  
+  section  p:first-of-type,
+  .content  p:first-of-type {
+    margin-top: 0 ;
+  }
+  .content *:first-child,
+  section *:first-child {
+      margin-top: 0 ;
+  }
+
+    /* .cover{
+      align-items: stretch;
+    }
+
+    .insert {
+      display: grid;
+      grid-column: var(--printcol, auto) / span var(--printwidth, 3);
+      grid-row: var(--printrow, auto) / span var(--printheight, 1);
+    }
+  
+    .insert * {
+        align-self: var(--alignself, start);
+    } */
+    
+    .insert h1,
+    .insert h2,
+    .insert h3,
+    .insert h4,
+    .insert h5,
+    .insert h6 {
+        line-height: 1;
+        /* font-size: var(--pt); */
+    }
+    
+
+    .h-full {
+      height: calc(var(--pagedjs-height) - var(--pagedjs-margin-top) - var(--pagedjs-margin-bottom) - var(--pagedjs-bleed-top) - var(--pagedjs-bleed-bottom) );
+    }
+
+
+
+  .reset-element {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /* font-size: 100%; */
+    font: inherit;
+    vertical-align: baseline;
+    line-height: 1;
+    color: inherit;
+    background: none;
+    box-sizing: border-box;
+}
+
+.reset-element *,
+.reset-element *::before,
+.reset-element *::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /* font-size: 100%; */
+    font: inherit;
+    vertical-align: baseline;
+    line-height: 1;
+    color: inherit;
+    background: none;
+    box-sizing: border-box;
+}
+    
+
+
+    .text-left{
+      text-align: left;
+    }
+    .text-right{
+      text-align: right;
+    }
+
+
+ #des-images{
+  page: modulargrid;
+  /* page-break-before: always; */
+  page-break-after: always;
+} 
+
+
+
+    .modulargrid {
+    page: modulargrid;
+    /* page-break-before: always; */
+    page-break-after: always;
+    /* width:100%; */
+
+      /* “reset” pagebox left margin : */
+      margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)) );
+
+      --g-column-count: var(--grid-col, 12);
+      --g-column-gutter: var(--grid-col-gutter, var(--spacer));
+      --g-row-count: var(--grid-row, 10);
+      --g-row-gutter: var(--grid-row-gutter, var(--spacer));
+
+      display: grid;
+      grid-template-columns: repeat(var(--g-column-count), 1fr);
+      grid-template-rows: repeat(var(--g-row-count), 1fr);
+      column-gap: var(--g-column-gutter);
+      row-gap: var(--g-row-gutter);
+    
+      height: calc(var(--pagedjs-height) - var(--pagedjs-margin-top) - var(--pagedjs-margin-bottom) - var(--pagedjs-bleed-top) - var(--pagedjs-bleed-bottom));
+      min-height: 0;
+
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    
+    .modulargrid .pagedjs_full-page_content {
+      left: calc((var(--pagedjs-margin-left) + 6mm) * -1) !important;
+      width: calc(var(--pagedjs-pagebox-width) + 6mm + 6mm) !important;
+    }
+    
+
+ 
+    .modulargrid .insert {
+      grid-column: var(--printcol, auto) / span var(--printwidth, 3);
+      grid-row: var(--printrow, auto) / span var(--printheight, 3);
+      position: relative;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      max-width: unset;
+     
+    }
+
+
+    .modulargrid .insert h1 ,
+    .modulargrid .insert h2 ,
+    .modulargrid .insert h3 ,
+    .modulargrid .insert h4 ,
+    .modulargrid .insert div,
+    .modulargrid .insert p {
+      align-self: var(--alignself, start);
+      flex-grow: 1;
+    }
+
+    .modulargrid .insert p {
+      margin-top: 1em;
+      margin-bottom: 0;
+    }
+    .modulargrid .insert p:first-child {
+      margin-top: 0;
+    }
+
+    .modulargrid figure {
+      grid-column: var(--printcol, auto) / span var(--printwidth, 3);
+      grid-row: var(--printrow, auto) / span var(--printheight, 1);
+      align-self: var(--alignself, start);
+      overflow: hidden;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      max-width: unset;
+      /* background-color: hsla(16, 100%, 50%, 0.15); */
+  } 
+
+  .hideMarker .modulargrid figure {
+    background-color: unset;
+  } 
+    .modulargrid figure img{
+      height: auto;
+      position: absolute;
+      border-style: none;
+      break-inside: avoid;
+      max-width: unset;
+
+      left: calc(var(--imgX,0) * 1%);
+      top: calc(var(--imgY,0) * 1%);
+      width: calc(var(--imgW, 100) * 1%);
+
+      align-self: var(--alignself, start);
+
+    }
+
+    .modulargrid  > h2 {
+      display:none;
+  }
+
+
+
+.runningContent{
+    position: absolute!important;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+
+
+  
+    /* header nav = Lire / imprimer / télécharger */
+    #header nav { display: none; } 
+
+
+
+
+
+}

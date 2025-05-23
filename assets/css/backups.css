@@ -1,0 +1,7 @@
+/* @import "../fonts/ibm_plex_mono/ibm_plex_mono.css"; */
+
+body {
+    background-color: #fdf9ef;
+    margin-left: 1em;
+    font-family: "IBM Plex Mono";
+}
