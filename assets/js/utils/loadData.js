@@ -12,7 +12,7 @@ let globalSectionCounter = 0;
 let SectionCounter = 0;
 
 
-function insertFileTags(part) {
+function insertFileMd(part) {
 	const mainElement = document.querySelector("main");
 	if (!mainElement) {
 		console.error("L'élément <main> est introuvable.");
@@ -21,7 +21,7 @@ function insertFileTags(part) {
 
     globalSectionCounter++;
     let sectionNumber = globalSectionCounter;
-	// console.log("insertFileTags section= " + sectionNumber);
+	// console.log("insertFileMd section= " + sectionNumber);
 	// console.log(sectionNumber);
 
 
@@ -97,7 +97,7 @@ function insertFileTags(part) {
 
 }
 
-function insertMdTags(part) {
+function insertPad(part) {
 	const mainElement = document.querySelector("main");
 	if (!mainElement) {
 		console.error("L'élément <main> est introuvable.");
@@ -190,7 +190,7 @@ function addCountersToSections() {
     });
 }
 
-function insertCssTag(url) {
+function insertPadCss(url) {
 	fetch(url)
 		.then((response) => {
 			if (!response.ok) {
@@ -368,14 +368,14 @@ export function insertTag(part, name, data) {
 
     if (shouldLoad) {
         if (part.file) {
-            insertFileTags(part, name, data); // Passer 'name' à 'insertFileTags'
+            insertFileMd(part, name, data); // Passer 'name' à 'insertFileMd'
         } else if (part.pad) {
-            insertMdTags(part, name, data); 
+            insertPad(part, name, data); 
         }
     }
 
 	if (part.padCSS) {
-		insertCssTag(part.padCSS + export_url_suffix_css);
+		insertPadCss(part.padCSS + export_url_suffix_css);
 	}
 }
 
