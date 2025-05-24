@@ -116,18 +116,39 @@ function adjust_interface(document){
         }
     });
 
-/* PREVIEW ---------------------------------*/
-let previewButton = document.querySelector('#label-preview-toggle');
-        document.querySelector("#preview-toggle").addEventListener("input", (e) => {
-            if(e.target.checked){
-                /* preview mode */
-                body.classList.add('interface-preview');
-                previewButton.innerHTML = "• Preview";
-            }else{
-                body.classList.remove('interface-preview');
-                previewButton.innerHTML = "Preview";
-            }
-        });
+    /* PREVIEW ---------------------------------*/
+    let previewButton = document.querySelector('#label-preview-toggle');
+    let previewToggle = document.querySelector("#preview-toggle");
+    
+    // Récupérer l'état sauvegardé depuis localStorage
+    const savedPreviewState = localStorage.getItem('previewToggleState');
+    
+    // Appliquer l'état sauvegardé au chargement
+    if (savedPreviewState === 'true') {
+        previewToggle.checked = true;
+        body.classList.add('interface-preview');
+        previewButton.innerHTML = "• Preview";
+    } else {
+        previewToggle.checked = false;
+        body.classList.remove('interface-preview');
+        previewButton.innerHTML = "Preview";
+    }
+    
+    // Écouter les changements et sauvegarder dans localStorage
+    previewToggle.addEventListener("input", (e) => {
+        if(e.target.checked){
+            /* preview mode */
+            body.classList.add('interface-preview');
+            previewButton.innerHTML = "• Preview";
+            // Sauvegarder l'état dans localStorage
+            localStorage.setItem('previewToggleState', 'true');
+        }else{
+            body.classList.remove('interface-preview');
+            previewButton.innerHTML = "Preview";
+            // Sauvegarder l'état dans localStorage
+            localStorage.setItem('previewToggleState', 'false');
+        }
+    });
 
     /* MARKERS (grid) ---------------------------------*/
     let markerButton = document.querySelector('#label-marker-toggle');
