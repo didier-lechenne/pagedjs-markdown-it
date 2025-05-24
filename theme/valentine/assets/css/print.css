@@ -1,50 +1,65 @@
 @media print {
 
-  @page {
+	section {
+		font-size: 12pt;
+		line-height: 16pt;
+	}
 
-    @top-left-corner{
-      content: element(folioRunning);
-      text-align: left;
-      padding-left: 1.2cm;
-    }
-    @top-right{
-      content: element(titleRunning);
-      text-align: left;
-    }
+  section.introduction  {
+		font-family: "BBBBaskervvol-Base", sans-serif;
+		font-size: 16pt;
+		line-height: 22pt;
+	}
 
-    @footnote {
-      float: bottom;
-    }
-  } 
+	@page {
+	}
 
+	@page: left{
+		@left-top {
+			content: counter(page);
+			text-align: left;
+			margin-left: 10mm;
+			font-family: var(--fontfamily);
+			font-size: 12pt;
+		}
+	};
 
-  @page appendices {
-    /* margin: 2.2cm 1cm .8cm 7.5cm; */
-  }
+	@page: right{
+		@right-top {
+			content: counter(page);
+			text-align: right;
+			margin-right: 10mm;
+			font-family: var(--fontfamily);
+			font-size: 12pt;
+		}
+	};
 
-  @page figures {
-    margin: 2.2cm 1cm .8cm 7.5cm;
-  }
+	@page appendices {
+		/* margin: 2.2cm 1cm .8cm 7.5cm; */
+	}
 
-  @page references {
-    /* margin: 3.2cm 1cm 1.2cm 7.5cm; */
-  }
+	@page figures {
+		margin: 2.2cm 1cm 0.8cm 7.5cm;
+	}
 
-  @page gridcol {
-      margin: 3.2cm 1cm 1.2cm 7.5cm;
-      --g-column-count: var(--grid-col, 3);
-      --g-column-gutter: var(--grid-col-gutter, var(--spacer));
-      
-      columns: var(--g-column-count);
-      column-gap: var(--spacer);
-      
-    }
+	@page references {
+		/* margin: 3.2cm 1cm 1.2cm 7.5cm; */
+	}
 
-  @page interview {
-    /* margin: 3.2cm 1cm 1.2cm 7.5cm; */
-  }
+	@page gridcol {
+		margin: 3.2cm 1cm 1.2cm 7.5cm;
+		--g-column-count: var(--grid-col, 3);
+		--g-column-gutter: var(--grid-col-gutter, var(--spacer));
 
-  /* @page page {
+		columns: var(--g-column-count);
+		column-gap: var(--spacer);
+	}
+
+	@page interview {
+		/* margin: 3.2cm 1cm 1.2cm 7.5cm; */
+	}
+
+	/* @page page {
     @bottom-left-corner {
       display: none;
     }
@@ -53,738 +68,790 @@
     }
   } */
 
+	@page fullimg {
+		margin: 0cm;
 
-  @page fullimg{
-    margin: 0cm;
+		@bottom-left-corner {
+			display: none;
+		}
+		@bottom-left {
+			display: none;
+		}
+	}
 
-    @bottom-left-corner {
-      display: none;
-    }
-    @bottom-left {
-      display: none;
-    }
-  }
+	@page sommaire {
+		margin: 32mm 10mm 12mm 75mm;
 
-  @page sommaire {
-    margin: 32mm 10mm 12mm 75mm;
+		@top-left-corner {
+			display: none;
+		}
+		@top-right {
+			display: none;
+		}
+	}
 
-    @top-left-corner{
-      display: none;
-    }
-    @top-right{
-      display: none;
-    }
+	@page modulargrid {
+		/* background-color: rgb(98, 218, 18); */
+		/* color:#fff; */
+	}
 
-  }
+	@page cover {
+		margin: 10mm;
+		background-color: rgba(22, 21, 20, 1);
 
-  @page modulargrid{
-    /* background-color: rgb(98, 218, 18); */
-    /* color:#fff; */
-    margin:32mm 10mm 12mm 75mm;
-    
-    @top-left-corner{
-      /* display: none; */
-    }
-    @top-right{
-      /* display: none; */
-    }
-  
-      @bottom-right{
-        /* display: none; */
-      }
-      @bottom-left{
-        /* display: none; */
-      }
-  }
+		@left-top {
+			display: none;
+		}
+		@right-top {
+			display: none;
+		}
+	}
 
-  @page cover {
-    margin: 2cm;
-    background-color:rgba(22, 21, 20,1);
-  
-    @top-left-corner{
-      display: none;
-    }
-    @top-right{
-      display: none;
-    }
-  
-    @bottom-right{
-      display: none;
-    }
-    @bottom-left{
-      display: none;
-    }
-  
-  }
+	@page blankpage {
+		margin: 0cm;
 
+		@top-left-corner {
+			display: none;
+		}
+		@top-right {
+			display: none;
+		}
 
-  @page blankpage {
-    margin: 0cm;
-  
-    @top-left-corner{
-      display: none;
-    }
-    @top-right{
-      display: none;
-    }
-  
-  
-   @bottom-left {
-     display: none;
-   }
-   @bottom-right{
-     display: none;
-   }
-  
-   @bottom-left-corner {
-     display: none;
-   }
-   @bottom-left {
-     display: none;
-   }
-  
-  }
+		@bottom-left {
+			display: none;
+		}
+		@bottom-right {
+			display: none;
+		}
 
+		@bottom-left-corner {
+			display: none;
+		}
+		@bottom-left {
+			display: none;
+		}
+	}
 
+	@page introduction {
 
+	}
 
+	@page sansFolio {
+		@left-top {
+			display: none;
+		}
+		@right-top {
+			display: none;
+		}
+	}
 
+	/* ------------------------------------------------------------------------ Variables */
+	:root {
+		--bigsize: 60px;
+		--basesize: 12px;
+		--smallsize: 10px;
+		--color: rgba(0, 0, 0, 0.85);
+		--spacer: 0.5cm;
+		/* maximum width for texts */
+		--maxwidth: 40em;
+		/* columns */
+		--columnwidth: calc((186mm - var(--spacer) * 11) / 12);
+		--maxwidth: 100%;
 
+		--baseline-text: 12px;
+		--pt-6: 0.5em; /* 6pt -> 8px / 12px */
+		--pt-7: 0.583em; /* 7pt -> 9.333px / 12px */
+		--pt-8: 0.666em; /* 8pt -> 10.667px / 12px */
+		--pt-9: 0.75em; /* 9pt -> 12px / 12px */
+		--pt-10: 0.833em; /* 10pt -> 13.333px / 12px */
+		--pt-11: 0.916em; /* 11pt -> 14.667px / 12px */
+		--pt-12: 1em; /* 12pt -> 16px / 12px */
+		--pt-13: 1.083em; /* 13pt -> 17.333px / 12px */
+		--pt-14: 1.166em; /* 14pt -> 18.667px / 12px */
+		--pt-15: 1.25em; /* 15pt -> 20px / 12px */
+		--pt-16: 1.333em; /* 16pt -> 21.333px / 12px */
+		--pt-17: 1.416em; /* 17pt -> 22.667px / 12px */
+		--pt-18: 1.5em; /* 18pt -> 24px / 12px */
+		--pt-19: 1.583em; /* 19pt -> 25.333px / 12px */
+		--pt-20: 1.666em; /* 20pt -> 26.667px / 12px */
+	}
 
+	/* ------------------------------------------------------------------------ gabarit */
+	.fullimg {
+		page: fullimg;
+		page-break-after: always;
+		/* page-break-before: always; */
+		/* break-before: never; */
+		/* break-after: always; */
+	}
 
-
-
-
-
-
-
-    /* ------------------------------------------------------------------------ Variables */
-    :root {
-      --bigsize: 60px;
-      --basesize: 12px;
-      --smallsize: 10px;
-      --color: rgba(0, 0, 0, 0.85);
-      --spacer: .5cm;
-      /* maximum width for texts */
-      --maxwidth: 40em;
-      /* columns */
-      --columnwidth: calc((186mm - var(--spacer) * 11) / 12);
-      --maxwidth:100%;
-
-      --baseline-text: 12px;
-      --pt-6: 0.5em;   /* 6pt -> 8px / 12px */
-      --pt-7: 0.583em; /* 7pt -> 9.333px / 12px */
-      --pt-8: 0.666em; /* 8pt -> 10.667px / 12px */
-      --pt-9: 0.75em;  /* 9pt -> 12px / 12px */
-      --pt-10: 0.833em;/* 10pt -> 13.333px / 12px */
-      --pt-11: 0.916em;/* 11pt -> 14.667px / 12px */
-      --pt-12: 1em;    /* 12pt -> 16px / 12px */
-      --pt-13: 1.083em;/* 13pt -> 17.333px / 12px */
-      --pt-14: 1.166em;/* 14pt -> 18.667px / 12px */
-      --pt-15: 1.25em; /* 15pt -> 20px / 12px */
-      --pt-16: 1.333em;/* 16pt -> 21.333px / 12px */
-      --pt-17: 1.416em;/* 17pt -> 22.667px / 12px */
-      --pt-18: 1.5em;  /* 18pt -> 24px / 12px */
-      --pt-19: 1.583em;/* 19pt -> 25.333px / 12px */
-      --pt-20: 1.666em;/* 20pt -> 26.667px / 12px */
-
-    }
-  
-    /* ------------------------------------------------------------------------ gabarit */
-    .fullimg {
-      page: fullimg;
-      page-break-after: always;
-      /* page-break-before: always; */
-      /* break-before: never; */
-      /* break-after: always; */
-    }
-
-
-    /* .page{
+	/* .page{
       page: page;
       page-break-after: always;
       page-break-before: always;
       height: calc(var(--pagedjs-height) - var(--pagedjs-margin-top) - var(--pagedjs-margin-bottom) - var(--pagedjs-bleed-top) - var(--pagedjs-bleed-bottom));
 
     } */
-  
 
+	/* ------------------------------------------------------------------------ Cover */
 
-    /* ------------------------------------------------------------------------ Cover */
- 
-   
-    /* permet d'avoir une image pleine page */
-    /* #cover .pagedjs_full-page_content {
+	/* permet d'avoir une image pleine page */
+	/* #cover .pagedjs_full-page_content {
       left: calc((var(--pagedjs-margin-left) + 6mm) * -1) !important;
       width: calc(var(--pagedjs-pagebox-width) + 6mm + 6mm) !important;
   } */
-  #cover {
-    page: cover;
+	#cover {
+		page: cover;
 
-    page-break-after: always;
-    color: rgb(255, 255, 255);
-    
-    /* “reset” pagebox left margin : */
-    margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)) );
+		page-break-after: always;
+		color: rgb(255, 255, 255);
 
+		/* “reset” pagebox left margin : */
+		margin-left: calc(
+			-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right))
+		);
 
-    --g-column-count: var(--grid-col, 12);
-    --g-column-gutter: var(--grid-col-gutter, var(--spacer));
-    --g-row-count: var(--grid-row, 10);
-    --g-row-gutter: var(--grid-row-gutter, var(--spacer));
-      
-    display: grid;
-    grid-template-columns: repeat(var(--g-column-count), 1fr);
-    grid-template-rows: repeat(var(--g-row-count), 1fr);
-    column-gap: var(--g-column-gutter);
-    row-gap: var(--g-row-gutter);
-  
-    height: calc(var(--pagedjs-height) - var(--pagedjs-margin-top) - var(--pagedjs-margin-bottom) - var(--pagedjs-bleed-top) - var(--pagedjs-bleed-bottom));
+		--g-column-count: var(--grid-col, 12);
+		--g-column-gutter: var(--grid-col-gutter, var(--spacer));
+		--g-row-count: var(--grid-row, 10);
+		--g-row-gutter: var(--grid-row-gutter, var(--spacer));
 
-    /* width: calc(100%); */
-    padding: 0;
-    margin: 0;
-  }
+		display: grid;
+		grid-template-columns: repeat(var(--g-column-count), 1fr);
+		grid-template-rows: repeat(var(--g-row-count), 1fr);
+		column-gap: var(--g-column-gutter);
+		row-gap: var(--g-row-gutter);
 
-  #cover .insert {
-      grid-column: var(--printcol, auto) / span var(--printwidth, 3);
-      grid-row: var(--printrow, auto) / span var(--printheight, 3);
+		height: calc(
+			var(--pagedjs-height) - var(--pagedjs-margin-top) -
+				var(--pagedjs-margin-bottom) - var(--pagedjs-bleed-top) -
+				var(--pagedjs-bleed-bottom)
+		);
 
-      /* overflow: hidden; */
-      position: relative;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      max-width: unset;
+		/* width: calc(100%); */
+		padding: 0;
+		margin: 0;
+	}
 
-    }
-    #cover .insert h1 ,
-    #cover .insert h2 ,
-    #cover .insert h3 ,
-    #cover .insert h4 ,
-    #cover .insert div,
-    #cover .insert p {
-      align-self: var(--alignself, start);
-      flex-grow: 1;
-    }
+	#cover .insert {
+		grid-column: var(--printcol, auto) / span var(--printwidth, 3);
+		grid-row: var(--printrow, auto) / span var(--printheight, 3);
 
-    #cover .insert p {
-      margin-top: 1em;
-      margin-bottom: 0;
-    }
-    #cover .insert p:first-child {
-      margin-top: 0;
-    }
+		/* overflow: hidden; */
+		position: relative;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		max-width: unset;
+	}
+	#cover .insert h1,
+	#cover .insert h2,
+	#cover .insert h3,
+	#cover .insert h4,
+	#cover .insert div,
+	#cover .insert p {
+		align-self: var(--alignself, start);
+		flex-grow: 1;
+	}
 
-    #cover figure {
-      grid-column: var(--printcol, auto) / span var(--printwidth, 3);
-      grid-row: var(--printrow, auto) / span var(--printheight, 1);
-      /* align-self: var(--alignself, start); */
-      overflow: hidden;
-      position: relative;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      max-width: unset;
-      /* background-color: hsla(16, 100%, 50%, 0.15); */
-  } 
+	#cover .insert p {
+		margin-top: 1em;
+		margin-bottom: 0;
+	}
+	#cover .insert p:first-child {
+		margin-top: 0;
+	}
 
-  .hideMarker #cover figure {
-    background-color: unset;
-  } 
-  #cover figure img{
-      height: auto;
-      position: absolute;
-      border-style: none;
-      break-inside: avoid;
-      max-width: unset;
+	#cover figure {
+		grid-column: var(--printcol, auto) / span var(--printwidth, 3);
+		grid-row: var(--printrow, auto) / span var(--printheight, 1);
+		/* align-self: var(--alignself, start); */
+		overflow: hidden;
+		position: relative;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		max-width: unset;
+		/* background-color: hsla(16, 100%, 50%, 0.15); */
+	}
 
-      left: calc(var(--imgX,0) * 1%);
-      top: calc(var(--imgY,0) * 1%);
-      width: calc(var(--imgW, 100) * 1%);
+	.hideMarker #cover figure {
+		background-color: unset;
+	}
+	#cover figure img {
+		height: auto;
+		position: absolute;
+		border-style: none;
+		break-inside: avoid;
+		max-width: unset;
 
-      align-self: var(--alignself, start);
+		left: calc(var(--imgX, 0) * 1%);
+		top: calc(var(--imgY, 0) * 1%);
+		width: calc(var(--imgW, 100) * 1%);
 
-    }
+		align-self: var(--alignself, start);
+	}
 
-    #cover  > h2 {
-      /* display:none; */
-  }
+	[data-title="cover"] h1 {
+		margin: 0;
+		font-size: 15pt;
+		font-weight: normal;
+		line-height: 140%;
+		text-align: left;
+		text-transform: uppercase;
+	}
 
+	[data-title="cover"] h2 {
+		margin: 0;
+		font-size: 15pt;
+		font-weight: normal;
+		line-height: 140%;
+		text-align: left;
+	}
 
+	[data-title="cover"] p {
+		margin: 0;
+		font-size: 10pt;
+		font-weight: normal;
+		line-height: 140%;
+		text-align: left;
+	}
 
+	.meta {
+		display: grid;
+		grid-gap: var(--spacer);
+		grid-template-columns: 1fr 1fr 1fr;
+		margin-top: 2rem;
+	}
 
-  [data-title="cover"] h1 {
-      margin: 0;
-      line-height: 1.1;
-      /* max-width: calc(var(--bigsize) * 16); */
-      font-size: calc(var(--bigsize) * 1);
-      /* color: var(--accentcolor); */
-    }
-  
-    [data-title="cover"] h2 {
-      margin: 0;
-      line-height: 1.2;
-      /* max-width: calc(var(--bigsize)* 16); */
-      font-size: calc(var(--bigsize)* .75);
-      /* color: var(--accentcolor); */
-      /* margin: .5em 0; */
-    }
+	/* ------------------------------------------------------------------------ Sommaire */
 
-  .meta {
-    display: grid;
-    grid-gap: var(--spacer);
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 2rem;
-  }
+	#sommaire {
+		page: sommaire;
+		page-break-after: always;
+	}
 
- 
+	#nav {
+		display: flex;
+		align-items: center;
+		height: calc(
+			var(--pagedjs-pagebox-height) - var(--pagedjs-margin-bottom) -
+				var(--pagedjs-margin-top)
+		);
+		min-height: 0;
+		padding: 0;
 
-    /* ------------------------------------------------------------------------ Sommaire */
-
-    #sommaire{
-      page: sommaire;
-      page-break-after: always;
-    }
-
-    #nav {
-      display: flex;
-      align-items: center;
-      height: calc(var(--pagedjs-pagebox-height) - var(--pagedjs-margin-bottom) - var(--pagedjs-margin-top));
-      min-height: 0;
-      padding: 0;
-      
-      
-      /* height: calc(var(--pagedjs-pagebox-height) - var(--pagedjs-margin-bottom) - var(--pagedjs-margin-top));
+		/* height: calc(var(--pagedjs-pagebox-height) - var(--pagedjs-margin-bottom) - var(--pagedjs-margin-top));
       min-height: 0;
       display: flex;
       align-items: center;
       grid-template-columns: 1fr;
        */
 
-      /* counter-reset: page 1;   */
-    }
-    #nav h2, #nav ul { grid-column: 1; }
-  
+		/* counter-reset: page 1;   */
+	}
+	#nav h2,
+	#nav ul {
+		grid-column: 1;
+	}
 
+	/* ------------------------------------------------------------------------ blankpage */
 
+	[id^="blankpage"] {
+		page: blankpage;
+		/* page-break-before: always; */
+		page-break-after: always;
+		/* width:100%; */
+		height: calc(
+			var(--pagedjs-height) - var(--pagedjs-margin-top) -
+				var(--pagedjs-margin-bottom) - var(--pagedjs-bleed-top) -
+				var(--pagedjs-bleed-bottom)
+		);
+		min-height: 0;
+	}
 
-     /* ------------------------------------------------------------------------ blankpage */
+	.pagedjs_page:has([data-bgColor="black"]) {
+		background-color: rgba(22, 21, 20, 1);
+	}
 
-  [id^="blankpage"] {
-    page: blankpage;
-    /* page-break-before: always; */
-    page-break-after: always;
-    /* width:100%; */
-      height: calc(var(--pagedjs-height) - var(--pagedjs-margin-top) - var(--pagedjs-margin-bottom) - var(--pagedjs-bleed-top) - var(--pagedjs-bleed-bottom));
-      min-height: 0;
-    }
-  
- 
-    .pagedjs_page:has([data-bgColor="black"]) {
-      background-color:rgba(22, 21, 20, 1);
-    }
+	.pagedjs_page:has([data-bgColor="colorBordeaux"]) {
+		background-color: rgb(59, 2, 2);
+	}
 
-    .pagedjs_page:has([data-bgColor="colorBordeaux"]) {
-      background-color: rgb(59, 2, 2);
-    } 
+	/* ------------------------------------------------------------------------ sansFolio */
 
+	.sansFolio {
+		page: sansFolio;
+		page-break-after: always;
+	}
 
+	/* ------------------------------------------------------------------------ introduction */
 
+	.introduction {
+		page: introduction;
+		page-break-after: always;
+	}
 
-    /* ------------------------------------------------------------------------ Running titles */
+	/* ------------------------------------------------------------------------ Running titles */
 
-    #page-1{
-      /* display:none */
-    }
-    /* running title */
-    .runningtitle {
-      display: none;
-      position: running(titleRunning);
-      gap:var(--spacer);
-    }
-    .runningtitle > * {
-      flex: 1;
-      text-align: left;
-    }
-    .runningtitle :nth-child(2){
-      font-weight: bold;
-    }
-    /* running folio */
-    .runningfolio {
-      display: none;
-      position: running(folioRunning);
-      gap:var(--spacer);
-    }
-    .runningfolio img {
-      width: 1cm;
-      transform: translateY(-.3cm);
-      margin: 0 1em;
-    }
-    .folio::before{
-      content: counter(page) ;
-      font-weight: bold;
-    }
-    .runningtitle, 
-    .runningfolio {
-      padding: 1cm 0 .5cm;
-    }
-    .pagedjs_margin {
-      align-items: start !important;
-    }
-    .pagedjs_margin-content > * {
-      display: flex !important;
-      align-items: start;
-    }
-  
+	.runningtitle {
+		/* display: none; */
+		gap: var(--spacer);
+		text-wrap: pretty;
+	}
+	.runningtitle > * {
+		flex: 1;
+		text-align: left;
+	}
+	.runningtitle :nth-child(2) {
+		font-weight: bold;
+	}
+	/* running folio */
+	.runningfolio {
+		/* display: none; */
+		position: running(folioRunning);
+		gap: var(--spacer);
+	}
+
+	.folio::before {
+		content: counter(page);
+		font-weight: bold;
+	}
+	.runningtitle,
+	.runningfolio {
+		padding: 1cm 0 0.5cm;
+	}
+	.pagedjs_margin {
+		align-items: start !important;
+	}
+	.pagedjs_margin-content > * {
+		display: flex !important;
+		align-items: start;
+	}
+
+	/* ------------------------------------------------------------------------ Content */
+
+	main {
+		display: block;
+		padding: 0;
+	}
+
+  .introduction p,
+	.default p {
+		/* minimum deux lignes présentes sur la page, au début ou à la fin d’un paragraphe */
+		orphans: 2;
+		widows: 2;
+		/* margin: 0; */
+		/* margin-bottom: 16pt; */
+
+    /* césure */
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+
+    hyphenate-limit-chars: 6 3 3;
+    /*                     │ │ │ */
+    /*                     │ │ └─ minimum 3 caractères APRÈS la césure */
+    /*                     │ └─── minimum 3 caractères AVANT la césure  */
+    /*                     └───── minimum 6 caractères au total dans le mot */
+
+    -webkit-hyphenate-limit-before: 2;
+    -webkit-hyphenate-limit-after: 2;
+    -moz-hyphenate-limit-chars: 5 2 2;
     
-    /* ------------------------------------------------------------------------ Content */
-    /* contenu */
-    main { 
-      display: block;
-      padding: 0;
-    }
-    .default p {
-      /* minimum deux lignes présentes sur la page, au début ou à la fin d’un paragraphe */
-      orphans: 2;
-      widows: 2;
-      margin: 0;
-    }
-    /* indentation des paragraphes sauf :
+    /* Limite des lignes consécutives avec césures */
+    hyphenate-limit-lines: 3;
+    -webkit-hyphenate-limit-lines: 3;
+    -moz-hyphenate-limit-lines: 3;
+    
+
+	}
+
+	.default p:last-child {
+		/* margin-bottom: 0pt; */
+	}
+
+	/* indentation des paragraphes sauf :
       — quand le paragaphe succède à autre chose qu’un paragraphe
       — quand un paragraphe est coupé par un saut ( il contient alors l’attribuet `data-split-from`
     */
-    .default p + p:not([data-split-from]) { text-indent: 2em; }
-  
-    #nav, section { 
-      margin-bottom: 0; 
-    }
-    figure {
-      break-inside: avoid;
-    }
-    .default figure.full {
-      /* “reset” pagebox left margin : */
-      margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)) );
-      max-width: none;
-    }  
+	.default p + p:not([data-split-from]) {
+		text-indent: 0em;
+	}
 
-    .figcaption,
-    figcaption {
-      font-size: var(--smallsize);
-    }
-    figure.videofigure::after{
-      display: block;
-      content: "→ " attr(data-src);
-      font-size: var(--smallsize);
-    }
-    .video[style] iframe {visibility: hidden;}
-    .video button { display: none;}
-    /* ------------------------------------------------------------------------ Break */
-    .breakpage {
-      height: 0;
-      page-break-before: always;
-      position: absolute;
-      margin: -1px;
-      padding: 0;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
-    .breakcolumn{
-      break-before:column;
-      break-after:column;
-    }
-    .breakprint {
-      display: block;
-    }
-    .breakscreen {
-      /* display: none; */
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
-    /* ------------------------------------------------------------------------ Spacing */
-    [style^="--ls"] { letter-spacing: calc(var(--ls, 0) * -0.001em); }
-  
-    
+	main h1 {
+		font-size: 28pt;
+		font-weight: normal;
+		/* font-family: "BBBBaskervvol-Base", sans-serif; */
+		line-height: 120%;
+	}
 
+	main h2 {
+		font-size: 28pt;
+		font-weight: normal;
+		text-align: center;
+		line-height: 120%;
+		/* font-family: "BBBBaskervvol-Base", sans-serif; */
+	}
+	main h3 {
+		/* font-size: 1em;
+    padding-left: 2em;
+    font-weight: normal;
+    text-decoration: underline;
+    max-width: var(--maxwidth); */
+	}
+	main h4 {
+		/* font-size: 1em;
+    margin-left: 2em;
+    font-weight: normal; */
+	}
 
-    /* ------------------------------------------------------------------------ Footnotes ??? */
-    .footnote {
-      float: footnote;
-      counter-increment: footnote;
-      break-inside: avoid;
-      -webkit-column-break-inside: avoid;
-    }
-    
-    .footnote:has(.breakcolumn) {
-      break-inside: auto;
-      -webkit-column-break-inside: auto;
-    }
-    
-    .footnotes-sep,
-    section.footnotes { display: none;}
-  
-    ::footnote-call {
-      font-weight: bold; 
-      content: "[" counter(footnote) "] ";
-      font-variant-position:normal;
-      vertical-align: baseline;
-      font-size: 100%;
-      padding-left: 0.25em;
-    }
-  
-    ::footnote-marker {
-      content: "[" counter(footnote-marker) "] ";
-      font-weight: bold;
-    }
-    
-    .pagedjs_footnote_inner_content {
-      font-size: var(--smallsize);
-      margin-top: 1em;
-    }
-  
-  
-    /* ------------------------------------------------------------------------ Figures */
-    .figures_page {
-      /* if we want a special template for iconographic groups */
-      /* page: figures; */
-      /* page-break-after: always; */
-      /* “reset” pagebox left margin : */
-      margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)) );
-    }
-    .figure_call {
-      font-variant-position:normal;
-      vertical-align: baseline;
-      font-size: 100%;
-    }
-    .figure_call a::after { 
-      content: ", p. " target-counter(attr(href url), page);
-    }
-  
-    .figure_call_back {
-      display: none;
-    }
-  
-  
-    /* ------------------------------------------------------------------------ Autofolder */
-    .autofolder {
-      page: appendices;
-      page-break-after: always;
-      /* “reset” pagebox left margin : */
-      margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)) );
-    }
-  
-    /* ------------------------------------------------------------------------ Annexes */
-    .appendices {
-      page: appendices;
-      page-break-before: always;
-      /* “reset” pagebox left margin : */
-      margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)) );
-    }
-    .appendices > h2 {
-      position: absolute !important;
-      border: 0 !important;
-      height: 1px !important;
-      width: 1px !important;
-      padding: 0 !important;
-      overflow: hidden !important;
-      clip: rect(0, 0, 0, 0) !important;
-    }
-  
-    .videofigure,
-    .figure {
-      grid-column: var(--printcol, auto) / span var(--printwidth, 3);
-      grid-row: var(--printrow, auto) / span var(--printheight, 1);
-      align-self: var(--alignself, start);
-    }
+	#nav,
+	section {
+		margin-bottom: 0;
+	}
+	figure {
+		break-inside: avoid;
+	}
+	.default figure.full {
+		/* “reset” pagebox left margin : */
+		margin-left: calc(
+			-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right))
+		);
+		max-width: none;
+	}
 
-    /* .videofigure, *,
+	.figcaption,
+	figcaption {
+		font-size: var(--smallsize);
+	}
+	figure.videofigure::after {
+		display: block;
+		content: "→ " attr(data-src);
+		font-size: var(--smallsize);
+	}
+	.video[style] iframe {
+		visibility: hidden;
+	}
+	.video button {
+		display: none;
+	}
+	/* ------------------------------------------------------------------------ Break */
+	.breakpage {
+		height: 0;
+		page-break-before: always;
+		position: absolute;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		border: 0;
+	}
+	.breakcolumn {
+		break-before: column;
+		break-after: column;
+	}
+	.breakprint {
+		display: block;
+	}
+	.breakscreen {
+		/* display: none; */
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		border: 0;
+	}
+	/* ------------------------------------------------------------------------ Spacing */
+	[style^="--ls"] {
+		letter-spacing: calc(var(--ls, 0) * -0.001em);
+	}
+
+	/* ------------------------------------------------------------------------ Footnotes ??? */
+	.footnote {
+		float: footnote;
+		counter-increment: footnote;
+		break-inside: avoid;
+		-webkit-column-break-inside: avoid;
+	}
+
+	.footnote:has(.breakcolumn) {
+		break-inside: auto;
+		-webkit-column-break-inside: auto;
+	}
+
+	.footnotes-sep,
+	section.footnotes {
+		display: none;
+	}
+
+	::footnote-call {
+		font-weight: bold;
+		content: "[" counter(footnote) "] ";
+		font-variant-position: normal;
+		vertical-align: baseline;
+		font-size: 100%;
+		padding-left: 0.25em;
+	}
+
+	::footnote-marker {
+		content: "[" counter(footnote-marker) "] ";
+		font-weight: bold;
+	}
+
+	.pagedjs_footnote_inner_content {
+		font-size: var(--smallsize);
+		margin-top: 1em;
+	}
+
+	/* ------------------------------------------------------------------------ Figures */
+	.figures_page {
+		/* if we want a special template for iconographic groups */
+		/* page: figures; */
+		/* page-break-after: always; */
+		/* “reset” pagebox left margin : */
+		margin-left: calc(
+			-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right))
+		);
+	}
+	.figure_call {
+		font-variant-position: normal;
+		vertical-align: baseline;
+		font-size: 100%;
+	}
+	.figure_call a::after {
+		content: ", p. " target-counter(attr(href url), page);
+	}
+
+	.figure_call_back {
+		display: none;
+	}
+
+	/* ------------------------------------------------------------------------ Autofolder */
+	.autofolder {
+		page: appendices;
+		page-break-after: always;
+		/* “reset” pagebox left margin : */
+		margin-left: calc(
+			-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right))
+		);
+	}
+
+	/* ------------------------------------------------------------------------ Annexes */
+	.appendices {
+		page: appendices;
+		page-break-before: always;
+		/* “reset” pagebox left margin : */
+		margin-left: calc(
+			-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right))
+		);
+	}
+	.appendices > h2 {
+		position: absolute !important;
+		border: 0 !important;
+		height: 1px !important;
+		width: 1px !important;
+		padding: 0 !important;
+		overflow: hidden !important;
+		clip: rect(0, 0, 0, 0) !important;
+	}
+
+	.videofigure,
+	.figure {
+		grid-column: var(--printcol, auto) / span var(--printwidth, 3);
+		grid-row: var(--printrow, auto) / span var(--printheight, 1);
+		align-self: var(--alignself, start);
+	}
+
+	/* .videofigure, *,
     .figure * {
       align-self: var(--alignself, start);
   } */
-    
-    .figure {
-      position: relative;
-      justify-self: stretch;
-    }
 
-    .appendices .videofigure .video {
-      margin-top: 0;
-    }
-  
-    .figure.print-top { align-self: start;}
-    .figure.print-center { align-self: center;}
-    .figure.print-bottom { align-self: end;} 
-    
-    /* ------------------------------------------------------------------------ References */
-    .references {
-      page: references;
-      page-break-before: always;
-      /* “reset” pagebox left margin : */
-      margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)) );
-    }
-    .references  h2 {
-      /* visibility: hidden; */
-      position: absolute !important;
-      border: 0 !important;
-      height: 1px !important;
-      width: 1px !important;
-      padding: 0 !important;
-      overflow: hidden !important;
-      clip: rect(0, 0, 0, 0) !important;
-    }
-    /* ------------------------------------------------------------------------ Interview */
+	.figure {
+		position: relative;
+		justify-self: stretch;
+	}
 
-    .interview {
-      page: interview;
-      page-break-before: always;
-    }
-    .interview  h2 {
-      /* visibility: hidden; */
-      position: absolute !important;
-      border: 0 !important;
-      height: 1px !important;
-      width: 1px !important;
-      padding: 0 !important;
-      overflow: hidden !important;
-      clip: rect(0, 0, 0, 0) !important;
-    }
-    .interview p:first-of-type{
-     margin-top: 0;
-    }
+	.appendices .videofigure .video {
+		margin-top: 0;
+	}
 
-    .interview p {
-      --indent: 10em;
-      margin-left: -10em;
-      max-width: none;
-    }
-  
-    /* ------------------------------------------------------------------------ Glossaire */
-    .glossary {
-      font-size: unset;
-    }
+	.figure.print-top {
+		align-self: start;
+	}
+	.figure.print-center {
+		align-self: center;
+	}
+	.figure.print-bottom {
+		align-self: end;
+	}
 
-    .glossary  h2 {
-      /* visibility: hidden; */
-      position: absolute !important;
-      border: 0 !important;
-      height: 1px !important;
-      width: 1px !important;
-      padding: 0 !important;
-      overflow: hidden !important;
-      clip: rect(0, 0, 0, 0) !important;
-    }
+	/* ------------------------------------------------------------------------ References */
+	.references {
+		page: references;
+		page-break-before: always;
+		/* “reset” pagebox left margin : */
+		margin-left: calc(
+			-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right))
+		);
+	}
+	.references h2 {
+		/* visibility: hidden; */
+		position: absolute !important;
+		border: 0 !important;
+		height: 1px !important;
+		width: 1px !important;
+		padding: 0 !important;
+		overflow: hidden !important;
+		clip: rect(0, 0, 0, 0) !important;
+	}
+	/* ------------------------------------------------------------------------ Interview */
 
-    .glossary  h3 {
-      padding-top: 0;
-      margin-top: 0;
-    }
-     /* ------------------------------------------------------------------------ References */
+	.interview {
+		page: interview;
+		page-break-before: always;
+	}
+	.interview h2 {
+		/* visibility: hidden; */
+		position: absolute !important;
+		border: 0 !important;
+		height: 1px !important;
+		width: 1px !important;
+		padding: 0 !important;
+		overflow: hidden !important;
+		clip: rect(0, 0, 0, 0) !important;
+	}
+	.interview p:first-of-type {
+		margin-top: 0;
+	}
 
-    .columns {
-      --g-column-count: var(--grid-col,3);
-      --g-column-gutter: var(--grid-col-gutter, var(--spacer));
-     
-      font-size: unset;
-      columns: var(--g-column-count);
-      column-gap: var(--g-column-gutter);
-    }
+	.interview p {
+		--indent: 10em;
+		margin-left: -10em;
+		max-width: none;
+	}
 
-    .columns  h2 {
-      /* visibility: hidden; */
-      position: absolute !important;
-      border: 0 !important;
-      height: 1px !important;
-      width: 1px !important;
-      padding: 0 !important;
-      overflow: hidden !important;
-      clip: rect(0, 0, 0, 0) !important;
-    }
+	/* ------------------------------------------------------------------------ Glossaire */
+	.glossary {
+		font-size: unset;
+	}
 
-    .references  h3,
-    .columns  h3 {
-      padding-top: 0;
-      margin-top: 0;
-    }
+	.glossary h2 {
+		/* visibility: hidden; */
+		position: absolute !important;
+		border: 0 !important;
+		height: 1px !important;
+		width: 1px !important;
+		padding: 0 !important;
+		overflow: hidden !important;
+		clip: rect(0, 0, 0, 0) !important;
+	}
 
-    .columns p {
-      break-inside: avoid;
-      max-width: 28em;
-    }
+	.glossary h3 {
+		padding-top: 0;
+		margin-top: 0;
+	}
+	/* ------------------------------------------------------------------------ References */
 
+	.columns {
+		--g-column-count: var(--grid-col, 3);
+		--g-column-gutter: var(--grid-col-gutter, var(--spacer));
 
-    .thanks h2 {
-      /* visibility: hidden; */
-      position: absolute !important;
-      border: 0 !important;
-      height: 1px !important;
-      width: 1px !important;
-      padding: 0 !important;
-      overflow: hidden !important;
-      clip: rect(0, 0, 0, 0) !important;
-    }
+		font-size: unset;
+		columns: var(--g-column-count);
+		column-gap: var(--g-column-gutter);
+	}
 
-  
-    /* ------------------------------------------------------------------------ Table des matières */
-    
-    #list-toc-generated {
-      list-style: none;
-      padding: 0;
-    }
-  
-    #list-toc-generated li:first-child {
-      margin-top: 0em;
-    }
+	.columns h2 {
+		/* visibility: hidden; */
+		position: absolute !important;
+		border: 0 !important;
+		height: 1px !important;
+		width: 1px !important;
+		padding: 0 !important;
+		overflow: hidden !important;
+		clip: rect(0, 0, 0, 0) !important;
+	}
 
-    #list-toc-generated .toc-element a::before {
-      content: target-counter(attr(href), page);
-      position: absolute;
-      left: 0;
-      margin-left: calc(-4em - 20px);
-      text-align: right;
-      width: 4em;
-    }
-  
-    #list-toc-generated .toc-element-level-1 {
-      font-weight: bold;
-      margin-top: 1em;
-    }
-  
-    #list-toc-generated .toc-element-level-2 {
-      margin-left: 20px;
-    }
-    #list-toc-generated .toc-element-level-2 a::before {
-      /* margin-left: calc(-4em - 40px); */
-    }
+	.references h3,
+	.columns h3 {
+		padding-top: 0;
+		margin-top: 0;
+	}
 
+	.columns p {
+		break-inside: avoid;
+		max-width: 28em;
+	}
 
+	.thanks h2 {
+		/* visibility: hidden; */
+		position: absolute !important;
+		border: 0 !important;
+		height: 1px !important;
+		width: 1px !important;
+		padding: 0 !important;
+		overflow: hidden !important;
+		clip: rect(0, 0, 0, 0) !important;
+	}
 
-   /*----------------------------------- ajout---*/
+	/* ------------------------------------------------------------------------ Table des matières */
 
-   br[data-break-before] + * {
-    margin-top: 0 ;
-  }
-  
-  section  p:first-of-type,
-  .content  p:first-of-type {
-    margin-top: 0 ;
-  }
-  .content *:first-child,
-  section *:first-child {
-      margin-top: 0 ;
-  }
+	#list-toc-generated {
+		list-style: none;
+		padding: 0;
+	}
 
-    /* .cover{
+	#list-toc-generated li:first-child {
+		margin-top: 0em;
+	}
+
+	#list-toc-generated .toc-element a::before {
+		content: target-counter(attr(href), page);
+		position: absolute;
+		left: 0;
+		margin-left: calc(-4em - 20px);
+		text-align: right;
+		width: 4em;
+	}
+
+	#list-toc-generated .toc-element-level-1 {
+		font-weight: bold;
+		margin-top: 1em;
+	}
+
+	#list-toc-generated .toc-element-level-2 {
+		margin-left: 20px;
+	}
+	#list-toc-generated .toc-element-level-2 a::before {
+		/* margin-left: calc(-4em - 40px); */
+	}
+
+	/*----------------------------------- ajout---*/
+
+	br[data-break-before] + * {
+		margin-top: 0;
+	}
+
+	section p:first-of-type,
+	.content p:first-of-type {
+		margin-top: 0;
+	}
+	.content *:first-child,
+	section *:first-child {
+		margin-top: 0;
+	}
+
+	/* .cover{
       align-items: stretch;
     }
 
@@ -797,194 +864,178 @@
     .insert * {
         align-self: var(--alignself, start);
     } */
-    
-    .insert h1,
-    .insert h2,
-    .insert h3,
-    .insert h4,
-    .insert h5,
-    .insert h6 {
-        line-height: 1;
-        /* font-size: var(--pt); */
-    }
-    
 
-    .h-full {
-      height: calc(var(--pagedjs-height) - var(--pagedjs-margin-top) - var(--pagedjs-margin-bottom) - var(--pagedjs-bleed-top) - var(--pagedjs-bleed-bottom) );
-    }
+	.insert h1,
+	.insert h2,
+	.insert h3,
+	.insert h4,
+	.insert h5,
+	.insert h6 {
+		line-height: 1;
+		/* font-size: var(--pt); */
+	}
 
+	.h-full {
+		height: calc(
+			var(--pagedjs-height) - var(--pagedjs-margin-top) -
+				var(--pagedjs-margin-bottom) - var(--pagedjs-bleed-top) -
+				var(--pagedjs-bleed-bottom)
+		);
+	}
 
+	.reset-element {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		/* font-size: 100%; */
+		font: inherit;
+		vertical-align: baseline;
+		line-height: 1;
+		color: inherit;
+		background: none;
+		box-sizing: border-box;
+	}
 
-  .reset-element {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    /* font-size: 100%; */
-    font: inherit;
-    vertical-align: baseline;
-    line-height: 1;
-    color: inherit;
-    background: none;
-    box-sizing: border-box;
-}
+	.reset-element *,
+	.reset-element *::before,
+	.reset-element *::after {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		/* font-size: 100%; */
+		font: inherit;
+		vertical-align: baseline;
+		line-height: 1;
+		color: inherit;
+		background: none;
+		box-sizing: border-box;
+	}
 
-.reset-element *,
-.reset-element *::before,
-.reset-element *::after {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    /* font-size: 100%; */
-    font: inherit;
-    vertical-align: baseline;
-    line-height: 1;
-    color: inherit;
-    background: none;
-    box-sizing: border-box;
-}
-    
+	.text-left {
+		text-align: left;
+	}
+	.text-right {
+		text-align: right;
+	}
 
+	#des-images {
+		page: modulargrid;
+		/* page-break-before: always; */
+		page-break-after: always;
+	}
 
-    .text-left{
-      text-align: left;
-    }
-    .text-right{
-      text-align: right;
-    }
+	.modulargrid {
+		page: modulargrid;
 
+		page-break-after: always;
+		/* width:100%; */
+		--g-column-count: var(--grid-col, 12);
+		--g-column-gutter: var(--grid-col-gutter, var(--spacer));
+		--g-row-count: var(--grid-row, 10);
+		--g-row-gutter: var(--grid-row-gutter, var(--spacer));
+		display: grid;
+		grid-template-columns: repeat(var(--g-column-count), 1fr);
+		grid-template-rows: repeat(var(--g-row-count), 1fr);
+		column-gap: var(--g-column-gutter);
+		row-gap: var(--g-row-gutter);
 
- #des-images{
-  page: modulargrid;
-  /* page-break-before: always; */
-  page-break-after: always;
-} 
+		height: calc(
+			var(--pagedjs-height) - var(--pagedjs-margin-top) -
+				var(--pagedjs-margin-bottom) - var(--pagedjs-bleed-top) -
+				var(--pagedjs-bleed-bottom)
+		);
+		min-height: 0;
+		padding-top: 0;
+		padding-bottom: 0;
 
+		/* “reset” pagebox left margin : */
+		/* margin-left: calc( -1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right))); */
+	}
 
+	.modulargrid .pagedjs_full-page_content {
+		left: calc((var(--pagedjs-margin-left) + 6mm) * -1) !important;
+		width: calc(var(--pagedjs-pagebox-width) + 6mm + 6mm) !important;
+	}
 
-    .modulargrid {
-    page: modulargrid;
-    /* page-break-before: always; */
-    page-break-after: always;
-    /* width:100%; */
+	.modulargrid .insert {
+		grid-column: var(--printcol, auto) / span var(--printwidth, 3);
+		grid-row: var(--printrow, auto) / span var(--printheight, 3);
+		position: relative;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		max-width: unset;
+	}
 
-      /* “reset” pagebox left margin : */
-      margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)) );
+	.modulargrid .insert h1,
+	.modulargrid .insert h2,
+	.modulargrid .insert h3,
+	.modulargrid .insert h4,
+	.modulargrid .insert div,
+	.modulargrid .insert p {
+		align-self: var(--alignself, start);
+		flex-grow: 1;
+	}
 
-      --g-column-count: var(--grid-col, 12);
-      --g-column-gutter: var(--grid-col-gutter, var(--spacer));
-      --g-row-count: var(--grid-row, 10);
-      --g-row-gutter: var(--grid-row-gutter, var(--spacer));
+	.modulargrid .insert p {
+		margin-top: 1em;
+		margin-bottom: 0;
+	}
+	.modulargrid .insert p:first-child {
+		margin-top: 0;
+	}
 
-      display: grid;
-      grid-template-columns: repeat(var(--g-column-count), 1fr);
-      grid-template-rows: repeat(var(--g-row-count), 1fr);
-      column-gap: var(--g-column-gutter);
-      row-gap: var(--g-row-gutter);
-    
-      height: calc(var(--pagedjs-height) - var(--pagedjs-margin-top) - var(--pagedjs-margin-bottom) - var(--pagedjs-bleed-top) - var(--pagedjs-bleed-bottom));
-      min-height: 0;
+	.modulargrid figure {
+		grid-column: var(--printcol, auto) / span var(--printwidth, 3);
+		grid-row: var(--printrow, auto) / span var(--printheight, 1);
+		align-self: var(--alignself, start);
+		overflow: hidden;
+		position: relative;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		max-width: unset;
+		/* background-color: hsla(16, 100%, 50%, 0.15); */
+	}
 
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-    
-    .modulargrid .pagedjs_full-page_content {
-      left: calc((var(--pagedjs-margin-left) + 6mm) * -1) !important;
-      width: calc(var(--pagedjs-pagebox-width) + 6mm + 6mm) !important;
-    }
-    
+	.hideMarker .modulargrid figure {
+		background-color: unset;
+	}
+	.modulargrid figure img {
+		height: auto;
+		position: absolute;
+		border-style: none;
+		break-inside: avoid;
+		max-width: unset;
 
- 
-    .modulargrid .insert {
-      grid-column: var(--printcol, auto) / span var(--printwidth, 3);
-      grid-row: var(--printrow, auto) / span var(--printheight, 3);
-      position: relative;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      max-width: unset;
-     
-    }
+		left: calc(var(--imgX, 0) * 1%);
+		top: calc(var(--imgY, 0) * 1%);
+		width: calc(var(--imgW, 100) * 1%);
 
+		align-self: var(--alignself, start);
+	}
 
-    .modulargrid .insert h1 ,
-    .modulargrid .insert h2 ,
-    .modulargrid .insert h3 ,
-    .modulargrid .insert h4 ,
-    .modulargrid .insert div,
-    .modulargrid .insert p {
-      align-self: var(--alignself, start);
-      flex-grow: 1;
-    }
+	.modulargrid > h2 {
+		display: none;
+	}
 
-    .modulargrid .insert p {
-      margin-top: 1em;
-      margin-bottom: 0;
-    }
-    .modulargrid .insert p:first-child {
-      margin-top: 0;
-    }
+	.runningContent {
+		position: absolute !important;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		border: 0;
+	}
 
-    .modulargrid figure {
-      grid-column: var(--printcol, auto) / span var(--printwidth, 3);
-      grid-row: var(--printrow, auto) / span var(--printheight, 1);
-      align-self: var(--alignself, start);
-      overflow: hidden;
-      position: relative;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      max-width: unset;
-      /* background-color: hsla(16, 100%, 50%, 0.15); */
-  } 
-
-  .hideMarker .modulargrid figure {
-    background-color: unset;
-  } 
-    .modulargrid figure img{
-      height: auto;
-      position: absolute;
-      border-style: none;
-      break-inside: avoid;
-      max-width: unset;
-
-      left: calc(var(--imgX,0) * 1%);
-      top: calc(var(--imgY,0) * 1%);
-      width: calc(var(--imgW, 100) * 1%);
-
-      align-self: var(--alignself, start);
-
-    }
-
-    .modulargrid  > h2 {
-      display:none;
-  }
-
-
-
-.runningContent{
-    position: absolute!important;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
-
-
-
-  
-    /* header nav = Lire / imprimer / télécharger */
-    #header nav { display: none; } 
-
-
-
-
-
+	/* header nav = Lire / imprimer / télécharger */
+	#header nav {
+		display: none;
+	}
 }

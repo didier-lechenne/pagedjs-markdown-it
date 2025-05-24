@@ -18,8 +18,10 @@ const arts = ["un", "une", "le", "la", "les", "du", "de", "des", "au", "aux"];
 const dets = ["ce", "ces", "cet", "cette", "mes", "tes", "ses", "mon", "ton", "ma", "ta", "son", "sa", "notre", "votre", "leur", "nos", "vos", "leurs"];
 const prons = ["je", "tu", "il", "elle", "on", "nous", "vous", "ils", "elles"];
 const conjs = ["mais", "où", "et", "donc", "or", "ni", "car", "ou", "que"];
-const short = ["be","he", "an","or","no", "at", "of", "it", "if", "is", "to", "in", "a","à", "y", "en", "de", "sur", "par", "as"];
+const short = ["a","à", "y", "en", "de", "sur", "par", ];
 const preps = ["après", "avant", "avec", "chez", "concernant", "contre", "dans", "depuis", "derrière", "dès", "durant", "entre", "hormis", "jusqu’à", "jusque", "loin", "malgré", "moyennant", "outre", "parmi", "pour", "près", "sans", "selon", "sous", "suivant", "touchant", "très", "vers"];
+
+
 
 // English prepositionsoverlay_hook
 // preps = /(\s|^|>)((aboard|about|above|across|after|against|along|amid|among|anti|around|before|behind|below|beneath|beside|besides|between|beyond|concerning|considering|despite|down|during|except|excepting|excluding|following|from|inside|into|like|minus|near|onto|opposite|outside|over|past|plus|regarding|round|save|since|than|that|this|through|toward|towards|under|underneath|unlike|until|upon|versus|with|within|without)\s)+/gi,

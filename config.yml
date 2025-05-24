@@ -19,7 +19,7 @@ subtitle: "Sous titre"
 
 # Le titre courant, si différent du titre du document
 # Running title, if different from the document title
-runningtitle: PageTypeToPrint <br class='breakprint'><i>alias</i> PaTaTaPrint.
+runningtitle: "runningTitle"
 
 # Votre nom
 # Your name
@@ -49,15 +49,20 @@ pdf: ""
 
 # Structure du contenu (= sommaire)
 parts:
-  - title: Cover
-    file : content/text/0.cover.md
+  - title: "Cover"
+    file : content/text/00.cover.md
 
+  - title: "Introduction"
+    file: content/text/10.introduction.md
 
-  - title: "Des images dans <br> une  grille modulaire"
-    file: content/text/image_grid.md
+  - title: "Introduction-text"
+    file: content/text/11.introduction-text.md
 
+  - title: "Domestique"
+    file: content/text/20.domestique-titre.md
 
-
+  - title: "Domestique-text"
+    file: content/text/21.domestique-texte.md
 
 
 

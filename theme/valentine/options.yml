@@ -1,67 +1,56 @@
 # Dimensions de la page en mm, pas besoin de mettre mm (obligatoire)
 # Page dimensions in mm, no need to add mm (required)
-width: 210
-height: 297
+width: 165
+height: 240
 
 # Marges générales de la page en mm (obligatoire)
 # General page margins in mm (required)
-margin_top: 32
-margin_right: 10
-margin_bottom: 12
-margin_left: 75
+margin_top: 
+margin_right: 
+margin_bottom: 
+margin_left: 
 
 # Marges spécifiques pour les pages de gauche et de droite en mm (optionnel)
 # Specific margins for left and right pages in mm (optional)
-page_left_margin_top:
-page_left_margin_bottom:
-page_left_margin_left:
-page_left_margin_right:
+page_left_margin_top: 10
+page_left_margin_bottom: 10
+page_left_margin_left: 25
+page_left_margin_right: 10
 
-page_right_margin_top:
-page_right_margin_bottom:
-page_right_margin_left:
-page_right_margin_right:
+page_right_margin_top: 10
+page_right_margin_bottom: 10
+page_right_margin_left: 10
+page_right_margin_right: 25
 
-# Propriétés de mise en page
-# Page layout properties
-# "true" ou "false" uniquement
-# "true" or "false" only
+# Propriétés de mise en page - Page layout properties
+# "true" ou "false" uniquement - "true" or "false" only
 
-# Fond perdu et repère de coupe
-# Bleed and crop marks
+# Fond perdu et repère de coupe - # Bleed and crop marks
 bleed: true
-# bleed: true
+# bleed: false
 marks: true
-# marks: true
-
-
+# marks: false
 
 
 # recto_verso: true
 recto_verso: false
 
 
+# Propriétés pour les notes - Properties for notes
+# au choix: bas de page ou dans la marge - choose: bottom or margin
 
-# Propriétés pour les notes
-# Properties for notes
-# au choix: bas ou marge
-# choose: bottom or margin
+# printNotes: margin
+printNotes: bottom
 
-# Des image dans la marge et/ou des notes en marge ou en bas de page
-imageNotes: true
+# Des image dans la marge 
+imageNotes: false
+# imageNotes: true
 
-# au choix
-printNotes: margin
-# printNotes: bottom
-
-
-# Pas d'élements dans la marge, donc obligatoirement des notes en basde page
-# imageNotes: false
-# printNotes: bottom
 
 
 # Propriétés avancées : laissez comme cela si vous ne savez pas ce que vous faites !
 # Advanced properties: leave as is if you don’t know what you’re doing!
+ragadjust: false
 typesetting: true
 ep_markdown: false
 tailwind: true

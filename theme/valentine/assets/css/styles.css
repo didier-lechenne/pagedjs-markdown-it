@@ -17,42 +17,12 @@ Sommaire :
 
 
 /* ------------------------------------------------------------------------ Fonts */
-@font-face {
-  font-family: "Ecole";
-  src: url("fonts/Ecole-Italic.woff2") format("woff2"),
-    url("fonts/Ecole-Italic.woff") format("woff");
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Ecole";
-  src: url("fonts/Ecole-Regular.woff2") format("woff2"),
-    url("fonts/Ecole-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Ecole";
-  src: url("fonts/Ecole-Bold.woff2") format("woff2"),
-    url("fonts/Ecole-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Ecole";
-  src: url("fonts/Ecole-BoldItalic.woff2") format("woff2"),
-    url("fonts/Ecole-BoldItalic.woff") format("woff");
-  font-weight: bold;
-  font-style: italic;
-}
-
+@import "fonts/GTMaru/index.css";
+@import "fonts/BBBBaskervvol/index.css";
 /* ------------------------------------------------------------------------ Variables */
 :root {
   /* typographie */
-  --fontfamily: "Ecole", sans-serif;
+  --fontfamily: "GT Maru", sans-serif;
   --bigsize: clamp(2.50rem, calc(1.83rem + 3.33vw), 6.00rem);
   --basesize: 1.15rem;
   --color: rgba(0, 0, 0, 0.85);
@@ -89,15 +59,18 @@ body {
   margin: 0;
   overflow-x: hidden;
 }
+
+
+
+
+
+
 p:first-child { margin-top: 0; }
 a { color: currentColor; }
 img { max-width: 100%; height: auto; }
 mark { background: var(--accentcolor); padding: 0 .15em; color: white;}
 sub, sup { line-height: 0; }
-sup {
-  top: 0.1em;
-  position: relative;
-}
+
 hr{ 
   height: 0;
   border: none;

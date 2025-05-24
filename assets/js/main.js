@@ -43,8 +43,8 @@ async function screenJS() {
 		// Obtenir les données de configuration
 		const typesetting = options.typesetting;
 		if (isTrue(typesetting)) {
-			import("./dependencies/ragadjust_screen.js")
-			console.info("Plugin → ragadjust");
+			// import("./dependencies/ragadjust_screen.js")
+			// console.info("Plugin → ragadjust");
 		}
 		
 		loadScript(`${themePath}/assets/js/screen/screen.js`);
@@ -136,8 +136,12 @@ async function printJS() {
 		await loadScript(`${themePath}/assets/js/print/print.js`);
 		console.info("Theme → print.js");
 
-		await import("./hooks/ragadjust_hook.js");
-		console.info("Plugin → ragadjust_hook");
+		if (isTrue(options.ragadjust)) {
+			await import("./hooks/ragadjust_hook.js");
+			console.info("Plugin → ragadjust_hook");
+		}
+
+
 
 		if (pageMode === "print&layout") {
 
