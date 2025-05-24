@@ -75,4 +75,4 @@ class MyHandler extends Paged.Handler {
 // Register the custom handler with Paged.js
 Paged.registerHandlers(MyHandler);
 
-export { MyHandler, getBlocks, unwrapBlockChildren }; // Export functions and class if needed
+export { MyHandler, getBlocks, unwrapBlockChildren }; 

@@ -26,6 +26,7 @@ Sommaire :
   --bigsize: clamp(2.50rem, calc(1.83rem + 3.33vw), 6.00rem);
   --basesize: 1.15rem;
   --color: rgba(0, 0, 0, 0.85);
+  --smallsize: 9pt;
   /* espacements homogènes */
   --spacer: 2rem;
   /* largeur des notes de côté */
@@ -282,9 +283,11 @@ main h4 {
 }
 
 main blockquote {
-  font-style: italic;
+  /* font-style: italic; */
   margin: 0;
-  padding: 1em 0 1em 4em;
+  padding-left: 8mm;
+  font-weight: normal;
+  margin-bottom: 16pt;
 }
 
 @media screen and (max-width:80rem) {

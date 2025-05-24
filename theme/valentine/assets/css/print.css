@@ -2,19 +2,15 @@
 
 	section {
 		font-size: 12pt;
-		line-height: 16pt;
+		line-height: 140%;
 	}
 
-  section.introduction  {
-		font-family: "BBBBaskervvol-Base", sans-serif;
-		font-size: 16pt;
-		line-height: 22pt;
-	}
+
 
 	@page {
 	}
 
-	@page: left{
+	@page:left{
 		@left-top {
 			content: counter(page);
 			text-align: left;
@@ -22,9 +18,9 @@
 			font-family: var(--fontfamily);
 			font-size: 12pt;
 		}
-	};
+	}
 
-	@page: right{
+	@page:right{
 		@right-top {
 			content: counter(page);
 			text-align: right;
@@ -32,7 +28,7 @@
 			font-family: var(--fontfamily);
 			font-size: 12pt;
 		}
-	};
+	}
 
 	@page appendices {
 		/* margin: 2.2cm 1cm .8cm 7.5cm; */
@@ -137,6 +133,8 @@
 	}
 
 	@page sansFolio {
+
+
 		@left-top {
 			display: none;
 		}
@@ -387,7 +385,16 @@
 	.sansFolio {
 		page: sansFolio;
 		page-break-after: always;
+
 	}
+
+  .sansFolio h2{
+    font-family: "BBBBaskervvol-Base", sans-serif;
+		font-size: 28pt;
+		line-height: 33.6pt;
+    font-weight: normal;
+    text-align: center;
+  }
 
 	/* ------------------------------------------------------------------------ introduction */
 
@@ -396,6 +403,11 @@
 		page-break-after: always;
 	}
 
+  section.introduction  {
+		font-family: "BBBBaskervvol-Base", sans-serif;
+		font-size: 19pt;
+		line-height: 22pt;
+	}
 	/* ------------------------------------------------------------------------ Running titles */
 
 	.runningtitle {
@@ -442,11 +454,10 @@
 
   .introduction p,
 	.default p {
-		/* minimum deux lignes présentes sur la page, au début ou à la fin d’un paragraphe */
 		orphans: 2;
 		widows: 2;
-		/* margin: 0; */
-		/* margin-bottom: 16pt; */
+		margin: 0; 
+		margin-bottom: 16pt;
 
     /* césure */
     word-break: break-word;
@@ -460,9 +471,9 @@
     /*                     │ └─── minimum 3 caractères AVANT la césure  */
     /*                     └───── minimum 6 caractères au total dans le mot */
 
-    -webkit-hyphenate-limit-before: 2;
-    -webkit-hyphenate-limit-after: 2;
-    -moz-hyphenate-limit-chars: 5 2 2;
+    -webkit-hyphenate-limit-before: 3;
+    -webkit-hyphenate-limit-after: 3;
+    -moz-hyphenate-limit-chars: 5 3 3;
     
     /* Limite des lignes consécutives avec césures */
     hyphenate-limit-lines: 3;
@@ -473,43 +484,15 @@
 	}
 
 	.default p:last-child {
-		/* margin-bottom: 0pt; */
+		margin-bottom: 0pt;
 	}
 
-	/* indentation des paragraphes sauf :
-      — quand le paragaphe succède à autre chose qu’un paragraphe
-      — quand un paragraphe est coupé par un saut ( il contient alors l’attribuet `data-split-from`
-    */
+
 	.default p + p:not([data-split-from]) {
 		text-indent: 0em;
 	}
 
-	main h1 {
-		font-size: 28pt;
-		font-weight: normal;
-		/* font-family: "BBBBaskervvol-Base", sans-serif; */
-		line-height: 120%;
-	}
 
-	main h2 {
-		font-size: 28pt;
-		font-weight: normal;
-		text-align: center;
-		line-height: 120%;
-		/* font-family: "BBBBaskervvol-Base", sans-serif; */
-	}
-	main h3 {
-		/* font-size: 1em;
-    padding-left: 2em;
-    font-weight: normal;
-    text-decoration: underline;
-    max-width: var(--maxwidth); */
-	}
-	main h4 {
-		/* font-size: 1em;
-    margin-left: 2em;
-    font-weight: normal; */
-	}
 
 	#nav,
 	section {
@@ -520,9 +503,7 @@
 	}
 	.default figure.full {
 		/* “reset” pagebox left margin : */
-		margin-left: calc(
-			-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right))
-		);
+		margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)));
 		max-width: none;
 	}
 
@@ -542,158 +523,27 @@
 		display: none;
 	}
 	/* ------------------------------------------------------------------------ Break */
-	.breakpage {
-		height: 0;
-		page-break-before: always;
-		position: absolute;
-		margin: -1px;
-		padding: 0;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		border: 0;
-	}
-	.breakcolumn {
-		break-before: column;
-		break-after: column;
-	}
-	.breakprint {
-		display: block;
-	}
-	.breakscreen {
-		/* display: none; */
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		margin: -1px;
-		padding: 0;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		border: 0;
-	}
+  @import "break.css";
+
 	/* ------------------------------------------------------------------------ Spacing */
 	[style^="--ls"] {
 		letter-spacing: calc(var(--ls, 0) * -0.001em);
 	}
 
-	/* ------------------------------------------------------------------------ Footnotes ??? */
-	.footnote {
-		float: footnote;
-		counter-increment: footnote;
-		break-inside: avoid;
-		-webkit-column-break-inside: avoid;
-	}
-
-	.footnote:has(.breakcolumn) {
-		break-inside: auto;
-		-webkit-column-break-inside: auto;
-	}
-
-	.footnotes-sep,
-	section.footnotes {
-		display: none;
-	}
-
-	::footnote-call {
-		font-weight: bold;
-		content: "[" counter(footnote) "] ";
-		font-variant-position: normal;
-		vertical-align: baseline;
-		font-size: 100%;
-		padding-left: 0.25em;
-	}
-
-	::footnote-marker {
-		content: "[" counter(footnote-marker) "] ";
-		font-weight: bold;
-	}
-
-	.pagedjs_footnote_inner_content {
-		font-size: var(--smallsize);
-		margin-top: 1em;
-	}
+	/* ------------------------------------------------------------------------ Footnotes */
+    @import "footnotes.css";
 
 	/* ------------------------------------------------------------------------ Figures */
-	.figures_page {
-		/* if we want a special template for iconographic groups */
-		/* page: figures; */
-		/* page-break-after: always; */
-		/* “reset” pagebox left margin : */
-		margin-left: calc(
-			-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right))
-		);
-	}
-	.figure_call {
-		font-variant-position: normal;
-		vertical-align: baseline;
-		font-size: 100%;
-	}
-	.figure_call a::after {
-		content: ", p. " target-counter(attr(href url), page);
-	}
+  @import "figures.css";
 
-	.figure_call_back {
-		display: none;
-	}
 
 	/* ------------------------------------------------------------------------ Autofolder */
-	.autofolder {
-		page: appendices;
-		page-break-after: always;
-		/* “reset” pagebox left margin : */
-		margin-left: calc(
-			-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right))
-		);
-	}
+    @import "autofolder.css";
 
 	/* ------------------------------------------------------------------------ Annexes */
-	.appendices {
-		page: appendices;
-		page-break-before: always;
-		/* “reset” pagebox left margin : */
-		margin-left: calc(
-			-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right))
-		);
-	}
-	.appendices > h2 {
-		position: absolute !important;
-		border: 0 !important;
-		height: 1px !important;
-		width: 1px !important;
-		padding: 0 !important;
-		overflow: hidden !important;
-		clip: rect(0, 0, 0, 0) !important;
-	}
+@import "appendices.css";
 
-	.videofigure,
-	.figure {
-		grid-column: var(--printcol, auto) / span var(--printwidth, 3);
-		grid-row: var(--printrow, auto) / span var(--printheight, 1);
-		align-self: var(--alignself, start);
-	}
 
-	/* .videofigure, *,
-    .figure * {
-      align-self: var(--alignself, start);
-  } */
-
-	.figure {
-		position: relative;
-		justify-self: stretch;
-	}
-
-	.appendices .videofigure .video {
-		margin-top: 0;
-	}
-
-	.figure.print-top {
-		align-self: start;
-	}
-	.figure.print-center {
-		align-self: center;
-	}
-	.figure.print-bottom {
-		align-self: end;
-	}
 
 	/* ------------------------------------------------------------------------ References */
 	.references {

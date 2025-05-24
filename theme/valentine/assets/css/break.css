@@ -1,0 +1,28 @@
+	.breakpage {
+		height: 0;
+		page-break-before: always;
+		position: absolute;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		border: 0;
+	}
+	.breakcolumn {
+		break-before: column;
+		break-after: column;
+	}
+	.breakprint {
+		display: block;
+	}
+	.breakscreen {
+		/* display: none; */
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		border: 0;
+	}

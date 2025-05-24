@@ -1,0 +1,6 @@
+	.autofolder {
+		page: appendices;
+		page-break-after: always;
+		/* “reset” pagebox left margin : */
+		margin-left: calc(-1 * (var(--pagedjs-margin-left) - var(--pagedjs-margin-right)));
+	}
