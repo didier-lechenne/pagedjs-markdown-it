@@ -150,17 +150,38 @@ function adjust_interface(document){
         }
     });
 
-/* MARKERS (grid) ---------------------------------*/
-let markerButton = document.querySelector('#label-marker-toggle');
-        document.querySelector("#marker-toggle").addEventListener("input", (e) => {
-            if(e.target.checked){
-                /* preview mode */
-                body.classList.remove('hideMarker');
-                markerButton.innerHTML = "• Markers";
-            }else{
-                body.classList.add('hideMarker');
-                markerButton.innerHTML = "Markers";
-            }
-        });
+    /* MARKERS (grid) ---------------------------------*/
+    let markerButton = document.querySelector('#label-marker-toggle');
+    let markerToggle = document.querySelector("#marker-toggle");
+    
+    // Récupérer l'état sauvegardé depuis localStorage
+    const savedMarkerState = localStorage.getItem('markerToggleState');
+    
+    // Appliquer l'état sauvegardé au chargement
+    if (savedMarkerState === 'true') {
+        markerToggle.checked = true;
+        body.classList.remove('hideMarker');
+        markerButton.innerHTML = "• Markers";
+    } else {
+        markerToggle.checked = false;
+        body.classList.add('hideMarker');
+        markerButton.innerHTML = "Markers";
+    }
+    
+    // Écouter les changements et sauvegarder dans localStorage
+    markerToggle.addEventListener("input", (e) => {
+        if(e.target.checked){
+            /* preview mode */
+            body.classList.remove('hideMarker');
+            markerButton.innerHTML = "• Markers";
+            // Sauvegarder l'état dans localStorage
+            localStorage.setItem('markerToggleState', 'true');
+        }else{
+            body.classList.add('hideMarker');
+            markerButton.innerHTML = "Markers";
+            // Sauvegarder l'état dans localStorage
+            localStorage.setItem('markerToggleState', 'false');
+        }
+    });
 
 };
