@@ -83,19 +83,38 @@ function adjust_interface(document){
 
     document.querySelector("#rd2").checked = "true";
 
-/* MARGIN BOXES ---------------------------------*/
-let marginButton = document.querySelector('#label-marginbox-toggle');
-
-        document.querySelector("#marginbox-toggle").addEventListener("input", (e) => {
-            if(e.target.checked){
-                body.classList.add('marginbox');
-                marginButton.innerHTML = "• Margins";
-
-            }else{
-                body.classList.remove('marginbox');
-                marginButton.innerHTML = "Margins";
-            }
-        });
+    /* MARGIN BOXES ---------------------------------*/
+    let marginButton = document.querySelector('#label-marginbox-toggle');
+    let marginToggle = document.querySelector("#marginbox-toggle");
+    
+    // Récupérer l'état sauvegardé depuis localStorage
+    const savedMarginState = localStorage.getItem('marginboxToggleState');
+    
+    // Appliquer l'état sauvegardé au chargement
+    if (savedMarginState === 'true') {
+        marginToggle.checked = true;
+        body.classList.add('marginbox');
+        marginButton.innerHTML = "• Margins";
+    } else {
+        marginToggle.checked = false;
+        body.classList.remove('marginbox');
+        marginButton.innerHTML = "Margins";
+    }
+    
+    // Écouter les changements et sauvegarder dans localStorage
+    marginToggle.addEventListener("input", (e) => {
+        if(e.target.checked){
+            body.classList.add('marginbox');
+            marginButton.innerHTML = "• Margins";
+            // Sauvegarder l'état dans localStorage
+            localStorage.setItem('marginboxToggleState', 'true');
+        }else{
+            body.classList.remove('marginbox');
+            marginButton.innerHTML = "Margins";
+            // Sauvegarder l'état dans localStorage
+            localStorage.setItem('marginboxToggleState', 'false');
+        }
+    });
 
 /* PREVIEW ---------------------------------*/
     let previewButton = document.querySelector('#label-preview-toggle');
