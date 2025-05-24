@@ -13,8 +13,10 @@ export function getPageMode() {
         return 'print';
     } else if (params.has('layout')) {
         return 'layout';
+    } else if (params.has('screen')) {
+        return 'screen';
     } else {
-        return 'screen'; // Valeur par défaut si aucun paramètre n'est présent
+        return 'print&layout'; // Mode par défaut
     }
 }
 

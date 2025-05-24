@@ -9,7 +9,7 @@ export default function regexTypo(){
     orthotypo(document.body);
     spaces(document.body);
     exposants();
-    noHyphens();
+    // noHyphens();
 }
 
 function orthotypo( element ){
@@ -87,6 +87,24 @@ function spaces( element ){
             reg: /([«‹])/g, 
             repl: '$1\u202F'
         },
+
+        // {
+        //     reg: /\s(le|la|un|une|ce|ce|il|on|de|du|et)\s+/g, 
+        //     repl: ' $1\u00A0'
+        // }, 
+    //     {
+    //        // if prev OPTION 2: no break space after successive two letter words 
+    //        reg: /\s+([a-zØ-öø-ÿœ]{2})\s+([A-Za-zÀ-ÖØ-öø-ÿœŒ]{2})\s+/g, 
+    //        repl: ' $1 $2\u00A0'
+    //    },
+        {
+            // no break space after one letter words
+            reg: /\s+([a-zà])\s+/gi, 
+            repl: ' $1\u00A0'
+        },
+
+
+    
         /**
          * This part is handled by ragadjust
          */

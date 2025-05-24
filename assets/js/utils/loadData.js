@@ -12,7 +12,7 @@ let globalSectionCounter = 0;
 let SectionCounter = 0;
 
 
-function insertFileTags(part) {
+function insertFileMd(part) {
 	const mainElement = document.querySelector("main");
 	if (!mainElement) {
 		console.error("L'élément <main> est introuvable.");
@@ -21,7 +21,7 @@ function insertFileTags(part) {
 
     globalSectionCounter++;
     let sectionNumber = globalSectionCounter;
-	// console.log("insertFileTags section= " + sectionNumber);
+	// console.log("insertFileMd section= " + sectionNumber);
 	// console.log(sectionNumber);
 
 
@@ -31,44 +31,12 @@ function insertFileTags(part) {
 
 	if (!section) {
 		let out = '';
-		let style = '';
-		let getClass = '';
 		
 		out += `<section  markdown="1" id="${id}"  `;
-		if (part.options && part.options.toc) {
-			getClass += `toc-${part.options.toc} `;
-		}
-		if (part.options && part.options.bgColor) {
-			out += ` data-bgColor="${part.options.bgColor}"`;
-		}
-		if (part.options && part.options.grid_col) {
-			// out += ` data-grid-col="${part.options.grid_col}"`;
-			style += `--grid-col:${part.options.grid_col}; `;
-		}
-		if (part.options && part.options.grid_col_gutter) {
-			// out += ` data-grid-col-gutter="${part.options.grid_col_gutter}"`;
-			style += `--grid-col-gutter:${part.options.grid_col_gutter}; `;
-		}
-		if (part.options && part.options.grid_row) {
-			// out += ` data-grid-row="${part.options.grid_row}"`;
-			style += `--grid-row:${part.options.grid_row}; `;
-		}
-		if (part.options && part.options.grid_row_gutter) {
-			// out += ` data-grid-row-gutter="${part.options.grid_row_gutter}"`;
-			style += `--grid-row-gutter:${part.options.grid_row_gutter}; `;
-		}
-		if (style) {
-			out += ` style="${style}"`;
-		}
-		
-			out += ` class="show_marker ${part.template} ${getClass}"`;
-
-			// out += `data-section="section_${sectionNumber}"`;
-
-			out += `data-title="${id}"`;
-		
+		out += ` class="show_marker"`;
+		// out += `data-section="section_${sectionNumber}"`;
+		out += `data-title="${id}"`;
 		out += `>`;
-
 
 
 		if (
@@ -97,7 +65,7 @@ function insertFileTags(part) {
 
 }
 
-function insertMdTags(part) {
+function insertPad(part) {
 	const mainElement = document.querySelector("main");
 	if (!mainElement) {
 		console.error("L'élément <main> est introuvable.");
@@ -190,7 +158,7 @@ function addCountersToSections() {
     });
 }
 
-function insertCssTag(url) {
+function insertPadCss(url) {
 	fetch(url)
 		.then((response) => {
 			if (!response.ok) {
@@ -338,7 +306,7 @@ export async function runningElements(data) {
         </div>
         <div class="runningfolio">
             <span class="folio"></span>
-            <img src="${themePath}/assets/css/logo.png" alt="ESAD Pyrénées">
+             <img src="${themePath}/assets/css/logo.png" alt="ESAD Pyrénées">
             <span class="diploma">${diploma || ""}</span>
         </div>`;
 
@@ -361,21 +329,21 @@ export function insertTag(part, name, data) {
 	const shouldLoad = shouldLoadSection(pageMode, showMode);
 
     if (!shouldLoad) {
-		// console.log(`Section ${part.title} non chargée en raison de la restriction du mode d'affichage.`);
+		console.log(`Section ${part.title} non chargée en raison de la restriction du mode d'affichage.`);
 		return;
 	}
     
 
     if (shouldLoad) {
         if (part.file) {
-            insertFileTags(part, name, data); // Passer 'name' à 'insertFileTags'
+            insertFileMd(part, name, data); // Passer 'name' à 'insertFileMd'
         } else if (part.pad) {
-            insertMdTags(part, name, data); 
+            insertPad(part, name, data); 
         }
     }
 
 	if (part.padCSS) {
-		insertCssTag(part.padCSS + export_url_suffix_css);
+		insertPadCss(part.padCSS + export_url_suffix_css);
 	}
 }
 
@@ -461,7 +429,9 @@ function applyFrontmatterOptions(section, options) {
     if (options.grid_row_gutter) style += `--grid-row-gutter:${options.grid_row_gutter}; `;
     
     // Template
-    if (options.template) classes.push(options.template);
+	if (options.template) classes.push(options.template);
+	console.log(`Template  = ${options.template}`);
+    // if (options.template) classes.push(options.template);
     
     // Classes personnalisées
     if (options.class) {
