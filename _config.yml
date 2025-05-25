@@ -1,0 +1,68 @@
+### Patataprint
+### Configuration 
+
+# Lire la documentation en ligne :
+# https://esadpyrenees.github.io/PageTypeToPrint/contenu/
+
+# Le thème à utiliser
+# theme: "A5"
+theme: "valentine"
+
+
+# Le titre du document
+# Document title
+title: Titre 
+
+# Le sous-titre éventuel du document
+# Optional subtitle of the document
+subtitle: "Sous titre"
+
+# Le titre courant, si différent du titre du document
+# Running title, if different from the document title
+runningtitle: "runningTitle"
+
+# Votre nom
+# Your name
+name: Prénom Nom
+
+# L’année, par ex. : 2021 – 2022
+# The year, e.g.: 2021 – 2022
+year: 2024 – 2025 
+
+# Votre diplôme, par ex. : DNA Design
+# Your diploma, e.g.: DNA Design
+diploma: DNSEP Design
+
+# La mention du diplôme, par ex. : Mention Design graphique Multimédia
+# Diploma mention, e.g.: Mention Graphic Multimedia Design
+mention: 
+# Mention Design <br class='breakprint'>Graphic Multimedia 
+
+
+# Department of Image, Publishing &amp;<br class="breakprint"> Typeface Design
+pole: 
+# Department of New Media
+
+# Le nom du fichier PDF généré depuis Chrome / Chromium
+# The name of the PDF file generated from Chrome / Chromium
+pdf: ""
+
+# Structure du contenu (= sommaire)
+parts:
+  - title: "Cover"
+    file : content/text/00.cover.md
+
+  - title: "Introduction"
+    file: content/text/10.introduction.md
+
+  - title: "Introduction-text"
+    file: content/text/11.introduction-text.md
+
+  - title: "Domestique"
+    file: content/text/20.domestique-titre.md
+
+  - title: "Domestique-text"
+    file: content/text/21.domestique-texte.md
+
+
+

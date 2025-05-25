@@ -1,51 +1,26 @@
-### Patataprint
-### Configuration 
+# Configuration du document PagedJS
+# Généré automatiquement depuis l'onglet Configurations
 
-# Lire la documentation en ligne :
-# https://esadpyrenees.github.io/PageTypeToPrint/contenu/
+# === INFORMATIONS GÉNÉRALES ===
+theme: "theme/valentine"
+title: "Désencombrement"
+subtitle: "Index d’une société à venir, allégée de ses objets"
+runningtitle: ""
 
-# Le thème à utiliser
-# theme: "A5"
-theme: "valentine"
+# === AUTEUR ET CONTEXTE ===
+name: "VALENTINE SAINT-MARTIN"
+mention: "Mémoire de Diplôme National Supérieur d'Expression Plastique"
+option: "option Design"
+year: "2024 – 2025"
+directeur: "sous la direction de Jean Charles Zebo"
+ecole: "ebabx – école supérieure des beaux-arts de Bordeaux"
 
-
-# Le titre du document
-# Document title
-title: Titre 
-
-# Le sous-titre éventuel du document
-# Optional subtitle of the document
-subtitle: "Sous titre"
-
-# Le titre courant, si différent du titre du document
-# Running title, if different from the document title
-runningtitle: "runningTitle"
-
-# Votre nom
-# Your name
-name: Prénom Nom
-
-# L’année, par ex. : 2021 – 2022
-# The year, e.g.: 2021 – 2022
-year: 2024 – 2025 
-
-# Votre diplôme, par ex. : DNA Design
-# Your diploma, e.g.: DNA Design
-diploma: DNSEP Design
-
-# La mention du diplôme, par ex. : Mention Design graphique Multimédia
-# Diploma mention, e.g.: Mention Graphic Multimedia Design
-mention: 
-# Mention Design <br class='breakprint'>Graphic Multimedia 
-
-
-# Department of Image, Publishing &amp;<br class="breakprint"> Typeface Design
-pole: 
-# Department of New Media
-
-# Le nom du fichier PDF généré depuis Chrome / Chromium
-# The name of the PDF file generated from Chrome / Chromium
+# === FICHIER PDF ===
 pdf: ""
+
+# === DOSSIER À SERVIR ===
+publicFolder: "memoire-Valentine"
+
 
 # Structure du contenu (= sommaire)
 parts:
@@ -63,6 +38,3 @@ parts:
 
   - title: "Domestique-text"
     file: content/text/21.domestique-texte.md
-
-
-

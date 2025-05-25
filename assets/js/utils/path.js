@@ -15,7 +15,7 @@ let themePath = '';
 async function getTheme() {
     try {
         const data = await readYAML('config.yml');
-        themePath = `theme/${data.theme}`; // Correction de la syntaxe
+        themePath = `${data.theme}`; // Correction de la syntaxe
         return themePath;
     } catch (error) {
         throw new Error(`Erreur lors de la lecture de config.yml: ${error.message}`);

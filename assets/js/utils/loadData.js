@@ -201,12 +201,13 @@ export async function screenCover(data) {
 		subtitle,
 		name,
 		runningtitle,
-		diploma,
+		option,
 		themePath,
-		pole,
+		ecole,
 		mention,
 		year,
 		pdf,
+		directeur,
 	} = data;
 
 	// Créer le contenu HTML
@@ -219,27 +220,24 @@ export async function screenCover(data) {
         </div>
         <div class="runningfolio">
             <span class="folio"></span>
-            <img src="themePath/${themePath}/assets/css/logo.png" alt="ESAD Pyrénées">
-            <span class="diploma">${diploma || ""}</span>
+            
+            
         </div>
         <div class="meta">
-            <div class="meta-data">
-                <p>
-                    École supérieure <br class="breakprint">
-                    d’art &amp; de design <br class="breakprint">
-                    des Pyrénées<br><br class="breakprint">
-                    ${pole || ""}
-                </p>
-            </div>
+ 
             <div>
                 <p>
-                    ${diploma || ""} <br>
-                    ${mention || ""}
+                    ${mention || ""} <br>
+					${option || ""} 
+                    
                 </p>
             </div>
             <div>
                 <div class="meta-name">${name || ""}</div>
                 <div class="meta-year">${year || ""}</div>
+				<div class="meta-year">${directeur || ""}</div>
+				<div class="meta-year">${ecole || ""}</div>
+				
             </div>
         </div>
         <nav id="quicklinks">
